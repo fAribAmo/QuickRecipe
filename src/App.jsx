@@ -1,6 +1,6 @@
 import React from 'react';
-import NavigationBar from './NavigationBar';
-import HomeMainContent from './HomeMainContent';
+import NavigationBar from './views/NavigationBarView';
+import HomeMainContent from './views/HomeMainContentView';
 import './App.css'; 
 
 const App = () => {
