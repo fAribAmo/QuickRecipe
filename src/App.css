@@ -1,62 +1,139 @@
-nav ul {
+.nav ul {
   list-style-type: none;
-  display: flex;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-nav li {
+.nav li {
   padding: 5px;
+  float: left;
 }
+
+.nav li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px;
+
+}
+
+.nav li a:hover {
+  background-color: #f3eeee;
+  color: rgb(76, 72, 72);
+}
+
 
 .nav{
-  overflow: auto;
+  overflow: hidden;
   width: 100%;
 }
 
 .home-title{
-  margin-left: 300px;
-  font-family:'Adobe Devanagari';
-  font-weight: bold;
-  font-size: 25px;
+    font-family: 'Adobe Devanagari';
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    color: black;
 }
 
 .main-content {
-  margin-left: 240px;
+  margin-left: 15%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  color: black;
+  padding-bottom: 50px;
 }
 
-.text-section {
+.home-text-section {
   text-align: center;
   font-family:'Adobe Devanagari';
   margin-top: 120px;
   width: 500px; 
-  height: 824px;
+  height: auto;
   flex: 1;
+}
+
+.search-page-left {
+  text-align: center;
+  margin-top: 150px;
+  width: 500px; 
+  height: auto;
+  flex: 1;
+}
+
+.search-popIng-button {
+  margin-left: 15px;
+  border: '1px solid';
+  border-radius: 20px;
+  background-color:rgb(255, 210, 62);
+}
+
+.search-add-button {
+  margin-left: 15px;
+  border: '1px solid black';
+  border-radius: 20px;
+  background-color:black;
+  color: white;
+}
+
+.text3{
+  font-size: 20px;
+  font-family:'Avenir Next';
+  font-weight:400;
 }
 
 .text2{
   font-size: 18px;
 }
 
+.search-input{
+  height: 30px;
+}
+
+.text4{
+  font-size: 24px;
+  font-family:'Adobe Devanagari';
+  font-weight:bold;
+  text-align: center;
+}
+
+
 .image-section {
   margin-top: 170px;
-  width: 600px; 
-  height: 824px;
+  margin-left: 20px;
   flex: 1;
 }
 
 .placeholder-image {
-  margin-left: 50px;
-  width: 300px; 
-  height: 280px;
+  width: 65%; 
+  height: 100%;
   background-color: #ccc;
+}
+
+#rectangle{
+  width:300px;
+  height:300px;
+  border-radius: 10px;
+  background:rgb(243, 243, 243);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.placeholder-list {
+  background-color: #eeeeee;
+  margin-top: 170px;
+  margin-left: 10px;
+  margin-right: 180px;
+  flex: 1;
+  border: '3px solid black';
 }
 
 .center {
   text-align: center;
 }
 
-.butten-start{
+.button-start{
   width: 160px;
   background-color: rgb(3, 3, 3);
   color:white;
@@ -64,16 +141,26 @@ nav li {
   font-size: 20px;
 }
 
-.nav.navbar-nav li a {
-  color: rgb(62, 62, 62);
+.nav.navbar-nav li, a {
+  color: rgb(15, 15, 15);
   font-family: 'Avenir Next';
   margin-left: 50px;
 }
-
-.App{
-  background: radial-gradient(600px at right top, rgb(255, 240, 175), white); 
-  overflow: auto;
-  width: 100vw;
-  
+.HomePage{
+  background: radial-gradient(100vh at right top, rgb(255, 240, 175), white); 
+  overflow: hidden;
+  width: 100vw; 
+  height: 100vh; 
 }
 
+.overflow{
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .nav li {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+}

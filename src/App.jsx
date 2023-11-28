@@ -1,14 +1,18 @@
 import React from 'react';
-import NavigationBar from './views/NavigationBarView';
-import HomeMainContent from './views/HomeMainContentView';
+import HomePageView from './views/HomePageView';
+import SearchPageView from './views/SearchPageView';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'; 
 
 const App = () => {
   return (
-    <div className="App">
-      <NavigationBar />
-      <HomeMainContent />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePageView />} />
+        <Route path="/search" element={<SearchPageView />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
   );
 }
 
