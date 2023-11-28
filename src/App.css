@@ -38,7 +38,7 @@
 }
 
 .main-content {
-  margin-left: 5%;
+  margin-left: 15%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -46,7 +46,7 @@
   padding-bottom: 50px;
 }
 
-.text-section {
+.home-text-section {
   text-align: center;
   font-family:'Adobe Devanagari';
   margin-top: 120px;
@@ -55,12 +55,54 @@
   flex: 1;
 }
 
+.search-page-left {
+  text-align: center;
+  margin-top: 150px;
+  width: 500px; 
+  height: auto;
+  flex: 1;
+}
+
+.search-popIng-button {
+  margin-left: 15px;
+  border: '1px solid';
+  border-radius: 20px;
+  background-color:rgb(255, 210, 62);
+}
+
+.search-add-button {
+  margin-left: 15px;
+  border: '1px solid black';
+  border-radius: 20px;
+  background-color:black;
+  color: white;
+}
+
+.text3{
+  font-size: 20px;
+  font-family:'Avenir Next';
+  font-weight:400;
+}
+
 .text2{
   font-size: 18px;
 }
 
+.search-input{
+  height: 30px;
+}
+
+.text4{
+  font-size: 24px;
+  font-family:'Adobe Devanagari';
+  font-weight:bold;
+  text-align: center;
+}
+
+
 .image-section {
   margin-top: 170px;
+  margin-left: 20px;
   flex: 1;
 }
 
@@ -68,6 +110,23 @@
   width: 65%; 
   height: 100%;
   background-color: #ccc;
+}
+
+#rectangle{
+  width:300px;
+  height:300px;
+  border-radius: 10px;
+  background:rgb(243, 243, 243);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.placeholder-list {
+  background-color: #eeeeee;
+  margin-top: 170px;
+  margin-left: 10px;
+  margin-right: 180px;
+  flex: 1;
+  border: '3px solid black';
 }
 
 .center {
@@ -87,11 +146,15 @@
   font-family: 'Avenir Next';
   margin-left: 50px;
 }
-.App{
-  background: radial-gradient(200vh at right top, rgb(255, 240, 175), white); 
+.HomePage{
+  background: radial-gradient(100vh at right top, rgb(255, 240, 175), white); 
   overflow: hidden;
-  width: 100vw;
-  
+  width: 100vw; 
+  height: 100vh; 
+}
+
+.overflow{
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {
