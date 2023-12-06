@@ -5,6 +5,7 @@ import SearchPagePresenter from '../presenters/SearchPagePresenter';
 import IngredientsModel from '../IngredientsModel';
 import NavigationBar from './NavigationBarView';
 import PopularIngredientsView from './PopularIngredView';
+import { useNavigate } from 'react-router-dom';
 
 const SearchPageView = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -25,6 +26,11 @@ const SearchPageView = () => {
   const removeIngredient = (ingredient) => {
     setIngredients(prevIngredients => prevIngredients.filter(ing => ing !== ingredient));
   };
+  const navigate = useNavigate();
+
+  const navigateToResult = () => {
+    navigate('/result'); // Use the navigate function to change the route
+  };
 
   // add event handlers using presenter methods here
 
@@ -44,10 +50,11 @@ const SearchPageView = () => {
                 <h2 className='text4'>My Ingredient List</h2>
                 <IngredientListView ingredients={ingredients} onRemove={removeIngredient} />
             </div>
+            
         </div>
-        <div className='search-button-div'>
-            <button className = 'search-button'>Search</button>
-        </div>
+        <div className='button-container'>
+              <button className='button-search' onClick={navigateToResult}>Search</button>
+            </div>
     </div>
   );
 };
