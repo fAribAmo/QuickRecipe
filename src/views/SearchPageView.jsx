@@ -39,7 +39,6 @@ const SearchPageView = () => {
                 <h2 className='text3'>Popular Ingredients:</h2>
                 <PopularIngredientsView onAdd={addIngredient} />
             </div>
-
             {/* Right section */}
             <div id="rectangle" className="placeholder-list">
                 <h2 className='text4'>My Ingredient List</h2>
