@@ -28,12 +28,13 @@ export function searchRecipesByIngredients(searchParams){
 /**This API utilizes the search parameters entered in the 
  * search bar to provide a list of autocompleted ingredients.*/
 export function autoCompleteIngerdient(searchparams){
-    const queryType = "?"+"query="+new URLSearchParams(searchparams);
+    const queryType = "?"+"query="+searchparams;
     const url = "https://webknox-recipes.p.rapidapi.com/food/ingredients/autocomplete" + queryType;
     const options = {
         method: "GET",
         headers: {
             "X-Mashape-Key": API_KEY,
+            'X-RapidAPI-Host': 'webknox-recipes.p.rapidapi.com'
         }
     };
     function getTheJSON_ACB(resp){

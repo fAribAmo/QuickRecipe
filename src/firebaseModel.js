@@ -1,16 +1,13 @@
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get, set} from "/src/teacherFirebase.js";
 import {extractRecipeData} from "/src/recipeSource.js";
-
+import { getDatabase, ref, get, set, onValue, child, onChildAdded, onChildRemoved, off} from "firebase/database";
 import firebaseConfig from "/src/firebaseConfig.js";
 
 const app= initializeApp(firebaseConfig)
 const db= getDatabase(app)
 const PATH="Recipe_by_ingredient_search_app"; 
 const rf = ref(db, PATH)
-
-set(ref(db, PATH+"/test"), "dummy");
 
 export function modelToPersistence(model) {
     function tranformToDishIDSACB(recipe) {
