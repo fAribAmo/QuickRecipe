@@ -46,6 +46,9 @@ const SearchPageView = () => {
                 <IngredientListView ingredients={ingredients} onRemove={removeIngredient} />
             </div>
         </div>
+        <div className='search-button-div'>
+            <button className = 'search-button'>Search</button>
+        </div>
     </div>
   );
 };
