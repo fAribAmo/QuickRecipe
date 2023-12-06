@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set} from "/src/teacherFirebase.js";
-import {extractRecipeData} from "/src/recipeSource.js";
+import { extractRecipeData } from "/src/recipeSource.js";
 
 import firebaseConfig from "/src/firebaseConfig.js";
 
@@ -10,13 +10,13 @@ const db= getDatabase(app)
 const PATH="Recipe_by_ingredient_search_app"; 
 const rf = ref(db, PATH)
 
-export function modelToPersistence(model) {
-    function tranformToDishIDSACB(recipe) {
-        return recipe.id;
+export function modelToPersistence(model) { 
+    function tranformToIDSACB(ingredient) {
+        return ingredient.id;
     } 
     return {
         currRecipe : model.currentRecipe,
-        searchedRecipeIDs : model.searchResultRecipies.map(tranformToDishIDSACB).sort()
+        ingredientIDs : model.ingredientArray.map(tranformToIDSACB).sort()
     };
 }
 
@@ -25,16 +25,18 @@ export function persistenceToModel(data, model) {
         model.currentRecipe = data.currRecipe
         
         //kanske måste ändra till att söka efter url
-        return extractRecipeData(data.searchedRecipeIDs || []).then(saveToModelACB);
+        return extractRecipeData(data.ingredientIDs || []).then(saveToModelACB);
     } else { //om inget ändrats
         model.currentRecipe = null
-        model.searchResultRecipies = []
+        model.ingredientArray = []
         //samma som övre kommentar
-        return extractRecipeData(model.searchResultRecipies).then(saveToModelACB)
+        return extractRecipeData(model.ingredientArray).then(saveToModelACB)
     }
     
-    function saveToModelACB(returnedRecipes) {
-        model.searchResultRecipies = returnedRecipes;
+    //måste ändras så att ingredienserna ändras, inte så att de blir till ett recept
+    //gör returnedRecipeIngredients.map eller nånting för att spara alla ingredienser
+    function saveToModelACB(returnedRecipeIngredients) {
+        model.ingredientArray = returnedRecipeIngredients;
     }
 }
 
@@ -61,7 +63,7 @@ export default function connectToFirebase(model, watchFunction){
     function checkACB() {
         return [
             model.currentRecipe,
-            model.searchResultRecipies 
+            model.ingredientArray 
         ]
     }
     function sideEffectACB() {
