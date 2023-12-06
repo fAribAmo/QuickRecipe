@@ -10,7 +10,7 @@ const SearchPageView = () => {
   const [ingredients, setIngredients] = useState([]);
   // add other state variables
 
-  const model = new IngredientsModel();
+  const model = IngredientsModel;
   const presenter = new SearchPagePresenter(model, {
     setIngredients,
     // add other setters
