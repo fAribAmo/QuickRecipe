@@ -52,8 +52,7 @@ export function autoCompleteIngerdient(searchparams){
     return fetch(url, options).then(getTheJSON_ACB).then(keepJustResultArrayACB).catch(catchCompleteIngerdientError);
 }
 /**
-This API endpoint retrieves detailed information about each 
-recipe using a specific URL for that recipe. */
+This API endpoint retrieves the recipe itself by the property "text", and other information about recipe*/
 export function extractRecipeData(recipeURL){
     const queryType = "?"+new URLSearchParams(recipeURL);
     const url = BASE_URL+"recipes/extract" + queryType;
