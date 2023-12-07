@@ -1,0 +1,15 @@
+
+ok vi måste hålla reda på allt det här,
+
+skriv ut alla tankar först, sortera dem sedan:
+
+- search button ska va efter popularIngredients, det kan va i searchPageView
+- en view ska hantera att lägga in ingredients från input,
+- det ska i sin tur läggas in i en table som vi gjorde i sidebarview
+- hur gjorde man det?
+
+i sidebarview
+- en table med alla props.model.dishes
+- precis som vår props.model.ingredientArray
+- det betyder att searchParams ska vara ett annat objekt!
+- vi måste göra en ingredientTableRowCB!

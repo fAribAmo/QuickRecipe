@@ -6,7 +6,7 @@ export default function SearchPagePresenter(props) {
         props.model.addIngredient(parameter)
     }
     function AddIngredientACB(parameter) {
-        props.model
+        
     }
 
     return <div><SearchFormView
