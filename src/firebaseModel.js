@@ -10,9 +10,11 @@ const db= getDatabase(app)
 const PATH="Recipe_by_ingredient_search_app"; 
 const rf = ref(db, PATH)
 
-export function modelToPersistence(model) { 
-    function tranformToIDSACB(ingredient) {
-        return ingredient.id;
+set(ref(db, PATH+"/test"), "dummy");
+
+export function modelToPersistence(model) {
+    function tranformToDishIDSACB(recipe) {
+        return recipe.id;
     } 
     return {
         currRecipe : model.currentRecipe,

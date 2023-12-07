@@ -46,6 +46,17 @@
   padding-bottom: 50px;
 }
 
+.search-button-div{
+  flex-direction: column;
+  text-align: center;
+  
+}
+
+.search-button{
+  background-color:black;
+  color: white;
+}
+
 .home-text-section {
   text-align: center;
   font-family:'Adobe Devanagari';
@@ -174,4 +185,8 @@
     display: block;
     text-align: center;
   }
+}
+
+.ContactPage{
+  
 }
