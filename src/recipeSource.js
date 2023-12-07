@@ -2,12 +2,12 @@ import {BASE_URL, API_KEY} from "/src/apiConfig.js";
 /**This API returns a list of recipes based on the array 
  * of ingredients it receives.*/
 export function searchRecipesByIngredients(searchParams){
-    const queryType = "?"+new URLSearchParams(searchParams);
-    const url = BASE_URL+"recipes/findByIngredients" + queryType;
+    const url = BASE_URL+"recipes/findByIngredients?ingredients=" + searchParams.join("%2C");
     const options = {
         method: "GET",
         headers: {
-            "X-Mashape-Key": API_KEY,
+            'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': 'webknox-recipes.p.rapidapi.com'
         }
     };
     function getTheJSON_ACB(resp){
@@ -29,7 +29,7 @@ export function searchRecipesByIngredients(searchParams){
  * search bar to provide a list of autocompleted ingredients.*/
 export function autoCompleteIngerdient(searchparams){
     const queryType = "?"+"query="+searchparams;
-    const url = "https://webknox-recipes.p.rapidapi.com/food/ingredients/autocomplete" + queryType;
+    const url = BASE_URL+"food/ingredients/autocomplete" + queryType;
     const options = {
         method: "GET",
         headers: {
@@ -55,12 +55,14 @@ export function autoCompleteIngerdient(searchparams){
 /**
 This API endpoint retrieves the recipe itself by the property "text", and other information about recipe*/
 export function extractRecipeData(recipeURL){
-    const queryType = "?"+new URLSearchParams(recipeURL);
+    const newURL = recipeURL.replace(":", "%3A");
+    const queryType = "?"+"url="+newURL.replace("/", "%2F");
     const url = BASE_URL+"recipes/extract" + queryType;
     const options = {
         method: "GET",
         headers: {
             "X-Mashape-Key": API_KEY,
+            'X-RapidAPI-Host': 'webknox-recipes.p.rapidapi.com'
         }
     };
     function getTheJSON_ACB(resp){
