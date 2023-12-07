@@ -13,3 +13,41 @@ i sidebarview
 - precis som vår props.model.ingredientArray
 - det betyder att searchParams ska vara ett annat objekt!
 - vi måste göra en ingredientTableRowCB!
+
+
+ok hur går dataflödet i DinnerModel?
+
+- input i SearchFormView
+- input till setSearchQuery i presenter
+- efter search:
+- kommer searchResultView
+- alla sökresultat visas som ett span element
+- dessa är klickbara
+- genom props.searchResults i searchResultsView mappas alla sökresultat
+- detta genom props.model.searchResultsPromiseState.data
+- av att alla sökresultat är klickbara kan man gå till details
+- där finns en button som heter add to menu
+- därifrån adderas dishen till modellen!
+- men till skillnad från labben ska vi sätta in själva event.target.value från 
+- input till "sidebaren", och inte promiseState.data.
+- konstigt att state.data automatiskt blir ett id
+
+
+
+
+i project:
+
+- i sideformview finns "search" button
+- den anropar props.model.doSearch(props.model.searchParams)
+- det ska ske i searchPageView
+
+
+så det vi ska göra är:
+- från input: skicka values till ingredientArray, dvs addIngredient, via presenter
+- från sidebarview "my ingredient list" : anropas props.dishes 
+- som är dishes från modellen, via presenter
+- på samma sätt som att vi ska ha en ingredientList i presenter
+- som i sin tur finns i myIngredientListView!
+
+
+
