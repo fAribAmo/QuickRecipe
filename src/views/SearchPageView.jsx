@@ -12,10 +12,6 @@ const SearchPageView = () => {
   // add other state variables
 
   const model = IngredientsModel;
-  const presenter = new SearchPagePresenter(model, {
-    setIngredients,
-    // add other setters
-  });
 
   const addIngredient = (ingredient) => {
     if (ingredient && !ingredients.includes(ingredient)) {

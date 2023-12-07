@@ -1,11 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import NavigationBar from './NavigationBarView';
 
-const HomePageView = () => {
-    const navigate = useNavigate();
+function HomePageView (props){
   
-    const navigateToSearch = () => {
-      navigate('/search'); // Use the navigate function to change the route
+    function navigateToSearch() {
+      props.navigateToSearch(); 
     };
   
     return (

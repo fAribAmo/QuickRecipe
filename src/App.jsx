@@ -1,5 +1,5 @@
 import React from 'react';
-import HomePageView from './views/HomePageView';
+import HomePagePresenter from './presenters/HomePagePresenter';
 import SearchPageView from './views/SearchPageView';
 import ContactPageView from './views/ContactPageView';
 import SearchResultView from './views/SearchResultView';
@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePageView />} />
+        <Route path="/" element={<HomePagePresenter />} />
         <Route path="/search" element={<SearchPageView />} />
         <Route path="/contact" element={<ContactPageView />} />
         <Route path="/result" element={<SearchResultView />} />
