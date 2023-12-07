@@ -22,11 +22,14 @@ export default {
   },
 
   addIngredient(ingredient) {
-    this.ingredients.add(ingredient);
+    this.ingredientArray=[...this.ingredientArray, ingredient]
   },
   
-  removeIngredient(ingredient) {
-    this.ingredients.delete(ingredient);
+  removeIngredient(ingredientToRemove) {
+    function shouldWeKeepIngredientCB(ingredient){
+      return !(ingredient.id === ingredientToRemove.id);
+  }
+    this.ingredientArray= this.ingredientArray.filter(shouldWeKeepIngredientCB);
   },
   
   //methods to manage mandatory and unwanted ingredients can be added here later
