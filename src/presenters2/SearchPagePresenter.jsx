@@ -7,6 +7,10 @@ export default observer (
     function SearchPagePresenter(props) {
 
         function TextChangeACB(parameter) {
+            props.model.setSearchQuery(parameter)
+            
+        }
+        function AddButtonACB(parameter) {
             props.model.addIngredient(parameter) //lägger till ingredienser i ingredientArray
         }
 
@@ -15,15 +19,17 @@ export default observer (
                 props.model.removeIngredient(parameter)
             }
             return (<MyIngredientListView
-                                         ingredientAccess={props.model.ingredientArray}
+                                         ingredientsAccess={props.model.ingredientArray}
                                          deleteIngredientFromList={RemoveIngredientACB}
                                          />
             )
         }  
         
-        return <div><SearchFormView
+        return <div className="search-page-left">
+                    <SearchFormView
                                     text={props.model.searchParameters.query}
                                     onTextChange={TextChangeACB}
+                                    addToIngredientList={AddButtonACB}
                                     />
                                     {RenderIngredientList()}
                 </div>

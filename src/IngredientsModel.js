@@ -8,6 +8,7 @@ export default {
   ingredientArray: [],
   searchResultRecipies: [],
   currentRecipe: null,
+  ingredients: {},
   searchParameters: {},
   searchResultsPromiseState: {},
   currentRecipePromiseState: {},

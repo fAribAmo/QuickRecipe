@@ -15,10 +15,11 @@ function IngredientListView(props) {
 
     return (
         <div>
+            <h2> My Ingridient List </h2>
             <table>
                 {
                 //måste kanske sorteras som i labben först
-                props.ingredientAccess.map(ingredientsToTableRowCB)
+                props.ingredientsAccess.map(ingredientsToTableRowCB)
                 //kan ha total ingredients i td element nedanför table
                 }
             </table>
