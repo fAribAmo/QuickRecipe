@@ -10,7 +10,7 @@ function searchPageView(props) {
     }
 
     return (
-        <div className='main-content ' >
+        <div>
 
             <h2 className='text3'>Add ingredients you need to use:</h2>
 
