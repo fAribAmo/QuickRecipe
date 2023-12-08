@@ -9,6 +9,7 @@ export default {
   searchResultRecipies: [],
   currentRecipe: null,
   ingredients: {},
+  stringIngredients: "",
   searchParameters: {},
   searchResultsPromiseState: {},
   currentRecipePromiseState: {},
@@ -23,7 +24,9 @@ export default {
   },
 
   addIngredient() { //no parameters since its query listing
-    this.ingredientArray=[...this.ingredientArray, this.searchParameters.query]
+    this.ingredientArray = Array.isArray(this.ingredientArray)
+    ? [...this.ingredientArray, this.searchParameters.query]
+    : [this.searchParameters.query];
   },
   
   removeIngredient(ingredientToRemove) {

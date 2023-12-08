@@ -3,10 +3,10 @@ import React from 'react';
 function searchPageView(props) {
 
     function handleInputChangeACB(evt) {
-        props.onTextChange(evt.target.value) //function ska finnas i presenter
+        props.onTextChange(evt.target.value) //sets searchParameters.query
     }
-    function AddToIngredientListACB(evt) {
-        props.addToIngredientList(evt.target.value) //gör egentligen det som ovan
+    function AddToIngredientListACB() {
+        props.addToIngredientList() //adds searchParameters.query in ingredientArray from above
     }
 
     return (

@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { extractRecipeData } from "/src/recipeSource.js";
+import { searchRecipesByIngredients } from "/src/recipeSource.js";
 import { getDatabase, ref, get, set, onValue, child, onChildAdded, onChildRemoved, off} from "firebase/database";
 import firebaseConfig from "/src/firebaseConfig.js";
 
