@@ -15,7 +15,8 @@ export function modelToPersistence(model) {
     } 
     return {
         currRecipe : model.currentRecipe,
-        ingredientIDs : model.ingredientArray.map(tranformToDishIDSACB).sort()
+        //i labbem anropas sort() efter map()
+        ingredientIDs : model.ingredientArray.map(tranformToDishIDSACB)
     };
 }
 
@@ -24,12 +25,12 @@ export function persistenceToModel(data, model) {
         model.currentRecipe = data.currRecipe
         
         //kanske måste ändra till att söka efter url
-        return extractRecipeData(data.ingredientIDs || []).then(saveToModelACB);
+        return searchRecipesByIngredients(data.ingredientIDs || []).then(saveToModelACB);
     } else { //om inget ändrats
         model.currentRecipe = null
         model.ingredientArray = []
         //samma som övre kommentar
-        return extractRecipeData(model.ingredientArray).then(saveToModelACB)
+        return searchRecipesByIngredients(model.ingredientArray).then(saveToModelACB)
     }
     
     function saveToModelACB(returnedIngredients) {

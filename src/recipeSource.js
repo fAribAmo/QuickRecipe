@@ -2,7 +2,8 @@ import {BASE_URL, API_KEY} from "/src/apiConfig.js";
 /**This API returns a list of recipes based on the array 
  * of ingredients it receives.*/
 export function searchRecipesByIngredients(searchParams){
-    const url = BASE_URL+"recipes/findByIngredients?ingredients=" + searchParams.join("%2C");
+    //.join(',') query from SearchPagePresenter in searchParams
+    const url = BASE_URL+"recipes/findByIngredients?ingredients=" + searchParams;
     const options = {
         method: "GET",
         headers: {

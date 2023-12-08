@@ -1,6 +1,7 @@
 
 import SearchFormView from "../views2/SearchFormView.jsx"
 import MyIngredientListView from "../views2/MyIngredientListView.jsx"
+import SearchButtonView from "../views2/searchButtonView.jsx"
 import { observer } from "mobx-react-lite";
 
 export default observer (
@@ -15,19 +16,28 @@ export default observer (
         function RemoveIngredientACB(parameter) {
             props.model.removeIngredient(parameter)
         }
+        function SearchACB() {
+            const commaSeparatedQuery = props.model.ingredientArray.join(',');
+            props.model.doSearch(commaSeparatedQuery)
+        }
         
         return <div className='main-content ' >
                     <div className="search-page-left" >
-                    <SearchFormView
-                                    text={props.model.searchParameters.query}
-                                    onTextChange={TextChangeACB}
-                                    addToIngredientList={AddButtonACB}
-                                    />
+                        <SearchFormView
+                                        text={props.model.searchParameters.query}
+                                        onTextChange={TextChangeACB}
+                                        addToIngredientList={AddButtonACB}
+                                        />
                     </div>
                     <div className="placeholder-list" >
-                    <MyIngredientListView
-                                         ingredientsAccess={props.model.ingredientArray}
-                                         deleteIngredientFromList={RemoveIngredientACB}
+                        <MyIngredientListView
+                                             ingredientsAccess={props.model.ingredientArray}
+                                             deleteIngredientFromList={RemoveIngredientACB}
+                                             />
+                    </div>
+                    <div className='button-container'>
+                        <SearchButtonView
+                                         getSearchResults={SearchACB}
                                          />
                     </div>
                 </div>
