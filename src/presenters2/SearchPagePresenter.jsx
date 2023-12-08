@@ -9,8 +9,8 @@ export default observer (
         function TextChangeACB(parameter) {
             props.model.setSearchQuery(parameter)
         }
-        function AddButtonACB(parameter) {
-            props.model.addIngredient(parameter) //lägger till ingredienser i ingredientArray
+        function AddButtonACB() {
+            props.model.addIngredient() //lägger till ingredienser i ingredientArray
         }
         function RemoveIngredientACB(parameter) {
             props.model.removeIngredient(parameter)

@@ -22,8 +22,8 @@ export default {
     }
   },
 
-  addIngredient(ingredient) {
-    this.ingredientArray=[...this.ingredientArray, ingredient]
+  addIngredient() {
+    this.ingredientArray=[...this.ingredientArray, this.searchParameters.query]
   },
   
   removeIngredient(ingredientToRemove) {
@@ -37,10 +37,6 @@ export default {
 
   setSearchQuery(queryText) {
     this.searchParameters.query = queryText;
-  },
-
-  setSearchType(queryType) {
-    this.searchParams.type = queryType;
   },
 
   doSearch(searchParams) { //goes to resolvePromise.js

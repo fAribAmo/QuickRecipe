@@ -11,8 +11,7 @@ function searchPageView(props) {
 
     return (
         <div>
-
-            <h2 className='text3'>Add ingredients you need to use:</h2>
+            <h2 className='text3' >Add ingredients you need to use:</h2>
 
             <input 
                 type="text"

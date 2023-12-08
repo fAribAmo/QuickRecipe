@@ -2,20 +2,18 @@
 function IngredientListView(props) {
 
     function ingredientsToTableRowCB(ingredient) {
-
         function WantsToRemoveACB() {
             props.deleteIngredientFromList(ingredient);
         }
-
         return <tr key={ingredient.id}>
                 <td> <button onClick={WantsToRemoveACB}> - </button></td>
-                <td>{ingredient.name /*Found propery name in example response api*/}</td> 
+                <td>{ingredient}</td> 
                </tr>;
     }
 
     return (
         <div>
-            <h2> My Ingridient List </h2>
+            <h2 className='text4' > My Ingridient List </h2>
             <table>
                 {
                 //måste kanske sorteras som i labben först
