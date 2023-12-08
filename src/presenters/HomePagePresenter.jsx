@@ -6,7 +6,7 @@ import React from 'react';
 
 export default 
 observer(
-function HomePagePresenter(props){
+function HomePagePresenter(){
     const navigate = useNavigate();
   
     function navigateToSearchACB (){

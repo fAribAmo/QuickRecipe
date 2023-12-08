@@ -1,6 +1,5 @@
 
 import {extractRecipeData} from "/src/recipeSource.js";
-import {searchRecipesByIngredients} from "/src/recipeSource.js";
 import resolvePromise from "./resolvePromise";
 
 export default {
@@ -8,7 +7,7 @@ export default {
   ingredientArray: [],
   searchResultRecipies: [],
   currentRecipe: null,
-  searchParameters: {},
+  ingredientText: '',
   searchResultsPromiseState: {},
   currentRecipePromiseState: {},
 
@@ -22,21 +21,24 @@ export default {
   },
 
   addIngredient(ingredient) {
-    this.ingredients.add(ingredient);
+    this.ingredientArray=[...this.ingredientArray,ingredient];
+  },
+
+  addIngredientFromInput(){
+    this.addIngredient(this.ingredientText);
   },
   
-  removeIngredient(ingredient) {
-    this.ingredients.delete(ingredient);
+  removeIngredient(ingredientToRemove) {
+    function shouldWeKeepIngredientCB(ingredient){
+      return !(ingredient === ingredientToRemove);
+    }
+    this.ingredientArray= this.ingredientArray.filter(shouldWeKeepIngredientCB);
   },
   
   //methods to manage mandatory and unwanted ingredients can be added here later
 
-  setSearchQuery(queryText) {
-    this.searchParameters.query = queryText;
-  },
-
-  setSearchType(queryType) {
-    this.searchParams.type = queryType;
+  setIngredientText(currentIngredientText) {
+    this.ingredientText = currentIngredientText;
   },
 
   doSearch(searchParams) { //goes to resolvePromise.js

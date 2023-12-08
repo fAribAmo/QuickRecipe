@@ -1,32 +1,30 @@
 import React, { useState } from 'react';
 import IngredientInputView from './IngredientInputView';
 import IngredientListView from './IngredientListView';
-import SearchPagePresenter from '../presenters/SearchPagePresenter';
-import IngredientsModel from '../IngredientsModel';
 import NavigationBar from './NavigationBarView';
 import PopularIngredientsView from './PopularIngredView';
-import { useNavigate } from 'react-router-dom';
 
-const SearchPageView = () => {
-  const [ingredients, setIngredients] = useState([]);
-  // add other state variables
+function SearchPageView(props){
 
-  const model = IngredientsModel;
-
-  const addIngredient = (ingredient) => {
-    if (ingredient && !ingredients.includes(ingredient)) {
-      setIngredients(prevIngredients => [...prevIngredients, ingredient]);
-    }
+  function addIngredient(ingredient){
+    props.addIngredient(ingredient);
   };
 
-  const removeIngredient = (ingredient) => {
-    setIngredients(prevIngredients => prevIngredients.filter(ing => ing !== ingredient));
+  function removeIngredient(ingredient){
+    props.removeIngredient(ingredient);
   };
-  const navigate = useNavigate();
 
-  const navigateToResult = () => {
-    navigate('/result'); // Use the navigate function to change the route
+  function navigateToResult(){
+    props.navigateToResult();
   };
+
+  function setIngredientText(ingredientText){
+    props.setIngredientText(ingredientText);
+  }
+
+  function handleAddClick(){
+    props.handleAddClick();
+  }
 
   // add event handlers using presenter methods here
 
@@ -37,14 +35,14 @@ const SearchPageView = () => {
             {/* Left section */}
             <div className="search-page-left">
                 <h2 className='text3'>Add ingredients you need to use:</h2>
-                <IngredientInputView onAdd={addIngredient} />
+                <IngredientInputView ingredientText={props.ingredientText} setIngredientText={setIngredientText} handleAddClick={handleAddClick} />
                 <h2 className='text3'>Popular Ingredients:</h2>
-                <PopularIngredientsView onAdd={addIngredient} />
+                <PopularIngredientsView handlePopularIngredientClick={addIngredient} />
             </div>
             {/* Right section */}
             <div id="rectangle" className="placeholder-list">
                 <h2 className='text4'>My Ingredient List</h2>
-                <IngredientListView ingredients={ingredients} onRemove={removeIngredient} />
+                <IngredientListView ingredients={props.ingredients} onRemove={removeIngredient} />
             </div>
             
         </div>

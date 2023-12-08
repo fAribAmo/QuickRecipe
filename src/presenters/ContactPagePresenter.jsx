@@ -6,8 +6,6 @@ import React from 'react';
 export default 
 observer(
 function ContactPagePresenter(){
-
-
     return(
         <div>
             <ContactPageView />

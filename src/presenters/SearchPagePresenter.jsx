@@ -1,26 +1,45 @@
-export default class SearchPagePresenter {
-    constructor(model, viewSetters) {
-      this.model = model;
-      this.setIngredients = viewSetters.setIngredients;
-    }
-  
-    handleAddIngredient = (ingredient) => {
-      this.model.addIngredient(ingredient);
-      this.updateView();
-    };
-  
-    handleRemoveIngredient = (ingredient) => {
-      this.model.removeIngredient(ingredient);
-      this.updateView();
-    };
-  
-    // Methods to manage mandatory and unwanted ingredients can be added here later
-  
-    updateView() {
-      // Call the setters provided by the view to update the UI
-      this.setIngredients([...this.model.ingredients]);
-      // Mandatory and unwanted ingredients can be updated similarly here later
-    }
-  
-    // Additional methods...
+import { observer } from "mobx-react-lite";
+import SearchPageView from "../views/SearchPageView";
+import { useNavigate } from 'react-router-dom';
+import React from 'react';
+
+export default 
+observer(
+function SearchPagePresenter(props){
+  const navigate = useNavigate();
+
+  function addIngredientACB(ingredient){
+    props.model.addIngredient(ingredient);
   }
+
+  function removeIngredientACB(ingredient){
+    props.model.removeIngredient(ingredient);
+  }
+
+  function navigateToResultACB(){
+    navigate('/result');
+  }
+
+  function setIngredientTextACB(ingredientText){
+    props.model.setIngredientText(ingredientText);
+  }
+
+  function handleAddClickACB(){
+    props.model.addIngredientFromInput();
+    props.model.setIngredientText('');
+  }
+
+  return (
+    <div>
+      < SearchPageView ingredients={props.model.ingredientArray}
+                       ingredientText={props.model.ingredientText}
+                       addIngredient={addIngredientACB}
+                       removeIngredient={removeIngredientACB}
+                       navigateToResult={navigateToResultACB}
+                       handleAddClick={handleAddClickACB}
+                       setIngredientText={setIngredientTextACB}/>
+    </div>
+  )
+  
+}
+)
