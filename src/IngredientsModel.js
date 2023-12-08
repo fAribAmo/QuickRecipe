@@ -28,8 +28,8 @@ export default {
   
   removeIngredient(ingredientToRemove) {
     function shouldWeKeepIngredientCB(ingredient){
-      return !(ingredient.id === ingredientToRemove.id);
-  }
+      return !(ingredient === ingredientToRemove);
+    }
     this.ingredientArray= this.ingredientArray.filter(shouldWeKeepIngredientCB);
   },
   
