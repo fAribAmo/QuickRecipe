@@ -6,7 +6,7 @@
 import "/src/teacherFetch.js";
 import model from "/src/IngredientsModel.js";
 
-import { observable, configure } from "mobx";
+import { observable, configure, reaction } from "mobx";
 configure({ enforceActions: "never", });  // we don't use Mobx actions
 const reactiveModel= observable(model);
 
@@ -23,11 +23,11 @@ window.myModel= reactiveModel;
 
 //reactiveModel.doSearch({});
 
-import { makeRouter } from "./Root.jsx";
+//import { makeRouter } from "./Root.jsx";
 
-app.use(makeRouter(reactiveModel))
+//app.use(makeRouter(reactiveModel))
 
 import firebaseModel from "./firebaseModel.js";
 import connectToFirebase from "./firebaseModel.js";
 
-connectToFirebase(reactiveModel, watch)
+connectToFirebase(reactiveModel, reaction)
