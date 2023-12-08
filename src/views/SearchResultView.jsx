@@ -1,16 +1,19 @@
 import React from 'react';
 import NavigationBar from './NavigationBarView';
 
-const SearchResult = () => {
+function SearchResultView(props){
     return (
       <div className='HomePage'>
          <div><NavigationBar /></div>
          <div>
-            <h1>Result</h1>
+            {props.recipes.map((recipe) => (
+            <img src={recipe.image} height="100" key={recipe.id}>
+            </img>
+            ))}
          </div>
       </div>
       
     );
   };
   
-  export default SearchResult;
+  export default SearchResultView;

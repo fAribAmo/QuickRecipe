@@ -14,8 +14,8 @@ function SearchPageView(props){
     props.removeIngredient(ingredient);
   };
 
-  function navigateToResult(){
-    props.navigateToResult();
+  function handleSearchClick(){
+    props.handleSearchClick();
   };
 
   function setIngredientText(ingredientText){
@@ -47,7 +47,7 @@ function SearchPageView(props){
             
         </div>
         <div className='button-container'>
-              <button className='button-search' onClick={navigateToResult}>Search</button>
+              <button className='button-search' onClick={handleSearchClick}>Search</button>
             </div>
     </div>
   );

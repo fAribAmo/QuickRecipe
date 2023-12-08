@@ -2,7 +2,7 @@ import React from 'react';
 import HomePagePresenter from './presenters/HomePagePresenter';
 import SearchPagePresenter from './presenters/SearchPagePresenter';
 import ContactPagePresenter from './presenters/ContactPagePresenter';
-import SearchResultView from './views/SearchResultView';
+import SearchResultPresenter from './presenters/SearchResultPresenter';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'; 
 
@@ -13,7 +13,7 @@ const App = (props) => {
         <Route path="/" element={<HomePagePresenter />} />
         <Route path="/search" element={<SearchPagePresenter model={props.model}/>} />
         <Route path="/contact" element={<ContactPagePresenter />} />
-        <Route path="/result" element={<SearchResultView />} />
+        <Route path="/result" element={<SearchResultPresenter model={props.model}/>} />
         
         {/* Add more routes as needed */}
       </Routes>

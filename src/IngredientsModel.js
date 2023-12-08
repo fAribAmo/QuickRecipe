@@ -1,6 +1,7 @@
 
 import {extractRecipeData} from "/src/recipeSource.js";
-import resolvePromise from "./resolvePromise";
+import { searchRecipesByIngredients } from "./recipeSource.js";
+import resolvePromise from "./resolvePromise.js";
 
 export default {
     
@@ -41,8 +42,8 @@ export default {
     this.ingredientText = currentIngredientText;
   },
 
-  doSearch(searchParams) { //goes to resolvePromise.js
-    resolvePromise(this.searchRecipesByIngredients(searchParams), this.searchResultsPromiseState)
+  doSearch() { //goes to resolvePromise.js
+    resolvePromise(searchRecipesByIngredients(this.ingredientArray), this.searchResultsPromiseState)
   },
 
   //setNumberOfIngredients{}?

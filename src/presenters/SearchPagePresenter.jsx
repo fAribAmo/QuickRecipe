@@ -16,7 +16,8 @@ function SearchPagePresenter(props){
     props.model.removeIngredient(ingredient);
   }
 
-  function navigateToResultACB(){
+  function handleSearchClickACB(){
+    props.model.doSearch();
     navigate('/result');
   }
 
@@ -35,7 +36,7 @@ function SearchPagePresenter(props){
                        ingredientText={props.model.ingredientText}
                        addIngredient={addIngredientACB}
                        removeIngredient={removeIngredientACB}
-                       navigateToResult={navigateToResultACB}
+                       handleSearchClick={handleSearchClickACB}
                        handleAddClick={handleAddClickACB}
                        setIngredientText={setIngredientTextACB}/>
     </div>
