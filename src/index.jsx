@@ -24,3 +24,10 @@ window.myModel= reactiveModel;
 //reactiveModel.doSearch({});
 
 import { makeRouter } from "./Root.jsx";
+
+app.use(makeRouter(reactiveModel))
+
+import firebaseModel from "./firebaseModel.js";
+import connectToFirebase from "./firebaseModel.js";
+
+connectToFirebase(reactiveModel, watch)
