@@ -1,35 +1,34 @@
-Quick Recipe - Group 20
+# Quick Recipe - Group 20
 
-Short project description :
+## Short project description :
 In this project, we will be developing a website capable of discovering recipes based on user-selected ingredients. The website will display relevant search results, and upon selecting a recipe, a detailed description will be presented, outlining the necessary steps to prepare the dish. Additionally, we aim to provide recommendations featuring similar recipes to the user. The technologies employed for this project include the React framework and Firebase.
 
-What we have done :
-    1.We created the most of the view componenets and presenters. 
-    2.The "IngredientsModel, firebaseModel" have been created. 
-    3.The user can navigate between pages even to the contact page. There are also some popular ingredients that they can add them in the list directly. 
-    4.The most of the MVP componenets are created. 
-    5.We have deployed the app and set up the firebase for the project. 
-    6.We start using data by calling API, for example, when user click the "search" button after entering in the ingredients, the user can get corresponding recipes.
+## What we have done :
+- [x] We created the most of the view componenets and presenters. 
+- [x] The "IngredientsModel, firebaseModel" have been created. 
+- [x] The user can navigate between pages even to the contact page. There are also some popular ingredients that they can add them in the list directly. 
+- [x] The most of the MVP componenets are created. 
+- [x] We have deployed the app ([DeployURL](https://quickrecipe-14ffc.web.app )) and set up the firebase for the project. 
+- [x] We start using data by calling API, for example, when user click the "search" button after entering in the ingredients, the user can get corresponding recipes.
 
-What we still plan to do :
-    We have not completed the creation of the detailed view and the utilization of all the intended endpoints. These include the endpoint for displaying similar recipes and the one for presenting the details of each recipe.
+## What we still plan to do :
+- [ ] We have not completed the creation of the detailed view and the utilization of all the intended endpoints. These include the endpoint for displaying similar recipes and the one for presenting the details of each recipe.
 
-Project file structure (short description/purpose of each file):
-    VIEWS:
-    HomepageView: It serves the homepage of the application. It includes navigation links, a start button which navigate to the searchPage. It also include a placeholder for an image but the image is not ready yet.
+## Project file structure (short description/purpose of each file):
+### VIEWS:
+    HomepageView: It serves the homepage of the application. It includes navigation bar links, a start button which navigate to the searchPage. It also include a placeholder for an image but the image is not ready yet.
 
     IngredientInputView: It contains the input and Add button. It will trigger an "onAdd" function when it clicks.
 
     IngredientListView: It will contain the list of ingredients that the user adds. All ingredients has a button to remove.
 
-    NavigationBar: 
     SearchPageView: This component add ingredients, display popular ingredients, show the current list, along with a search button.
 
     SearchResultView: Show searching result of the recipes. It is not complete yet.
     
     ContactPageView: This componenet is designed to render a contact page.
 
-    PRESENTER:
+### PRESENTER:
     ContactPagePresenter: Renders the the ContactPageView.
 
     HomePagePresenter: Renderes the SearchResultView.
@@ -39,7 +38,7 @@ Project file structure (short description/purpose of each file):
 
     SearchResultPresenter: Renderes SearchResultView.
 
-    MODEL:
+### MODEL:
     IngerdientsModel: This object manage reciepe and ingredient data in the application. It includes the methods for setting current recipe, adding and removing ingredients, it also perform the recipe searches. It also includes the fetch and promise opperations. 
 
     firebaseMode: Manage database storage and persistence of the project.
