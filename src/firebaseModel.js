@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import {extractRecipeData} from "/src/recipeSource.js";
+import { extractRecipeData } from "/src/recipeSource.js";
 import { getDatabase, ref, get, set, onValue, child, onChildAdded, onChildRemoved, off} from "firebase/database";
 import firebaseConfig from "/src/firebaseConfig.js";
 
@@ -10,12 +10,12 @@ const PATH="Recipe_by_ingredient_search_app";
 const rf = ref(db, PATH)
 
 export function modelToPersistence(model) {
-    function tranformToDishIDSACB(recipe) {
-        return recipe.id;
+    function tranformToDishIDSACB(ingredient) {
+        return ingredient;
     } 
     return {
         currRecipe : model.currentRecipe,
-        searchedRecipeIDs : model.searchResultRecipies.map(tranformToDishIDSACB).sort()
+        ingredientIDs : model.ingredientArray.map(tranformToDishIDSACB).sort()
     };
 }
 
@@ -24,16 +24,16 @@ export function persistenceToModel(data, model) {
         model.currentRecipe = data.currRecipe
         
         //kanske måste ändra till att söka efter url
-        return extractRecipeData(data.searchedRecipeIDs || []).then(saveToModelACB);
+        return extractRecipeData(data.ingredientIDs || []).then(saveToModelACB);
     } else { //om inget ändrats
         model.currentRecipe = null
-        model.searchResultRecipies = []
+        model.ingredientArray = []
         //samma som övre kommentar
-        return extractRecipeData(model.searchResultRecipies).then(saveToModelACB)
+        return extractRecipeData(model.ingredientArray).then(saveToModelACB)
     }
     
-    function saveToModelACB(returnedRecipes) {
-        model.searchResultRecipies = returnedRecipes;
+    function saveToModelACB(returnedIngredients) {
+        model.ingredientArray = returnedIngredients;
     }
 }
 
@@ -60,7 +60,7 @@ export default function connectToFirebase(model, watchFunction){
     function checkACB() {
         return [
             model.currentRecipe,
-            model.searchResultRecipies 
+            model.ingredientArray 
         ]
     }
     function sideEffectACB() {

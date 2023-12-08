@@ -22,7 +22,7 @@ export default {
     }
   },
 
-  addIngredient() {
+  addIngredient() { //no parameters since its query listing
     this.ingredientArray=[...this.ingredientArray, this.searchParameters.query]
   },
   
