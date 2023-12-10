@@ -3,17 +3,48 @@ import NavigationBar from './NavigationBarView';
 
 function SearchResultView(props){
     return (
-      <div className='HomePage'>
+      <div className='HomePage' >
          <div><NavigationBar /></div>
-         <div>
-            {props.recipes.map((recipe) => (
-            <img src={recipe.image} height="100" key={recipe.id}>
-            </img>
-            ))}
-         </div>
+         <div className='container'>{props.recipes.map(searchResultImageNameCB)}</div>
       </div>
       
     );
-  };
+
+    function searchResultImageNameCB(searchResult){
+      return (
+        <span key={searchResult.id} onClick={() => getDish(searchResult)}>
+            <div className='item'>
+               <div><img src={searchResult.image} width="300" height="236"></img></div>
+               <div className='content'>
+                  <div className='title'>{searchResult.title} </div>
+                  <div className='ingredients'></div>
+                  Ingredients: {getIngredientsCB(searchResult)}
+               </div>
+            </div>
+         </span>
+      );
+
+      function getIngredientsCB(searchResult){
+         var ingredient_str = "";
+         ingredient_str = searchResult.usedIngredients.map(getIngredientsTextCB);
+         if (searchResult.missedIngredients){
+            ingredient_str += ', ';
+            ingredient_str += searchResult.missedIngredients.map(getIngredientsTextCB);
+         }
+         ingredient_str += '.';
+         return ingredient_str;
+      }
+      function getIngredientsTextCB(searchResult, index, array){
+         console.log(index);
+         if(index === array.length -1){
+            return searchResult.name;
+         }else{
+            return(
+               searchResult.name
+            );
+         }
+      }
+    }
+   }
   
   export default SearchResultView;

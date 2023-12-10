@@ -3,6 +3,9 @@ import SearchPageView from "../views/SearchPageView";
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
+//TODO(@siyu): Remove this once we are done with testing local data.
+import testdata from '/src/assets/testdata.json';
+
 export default 
 observer(
 function SearchPagePresenter(props){
@@ -17,7 +20,13 @@ function SearchPagePresenter(props){
   }
 
   function handleSearchClickACB(){
-    props.model.doSearch();
+    //TODO(@siyu): Remove this once we are done with testing local data.
+    //props.model.doSearch();
+    props.model.searchResultsPromiseState = {
+      promise: 'foo',
+      error: null,
+      data: testdata,
+    }
     navigate('/result');
   }
 
