@@ -3,7 +3,8 @@
 ## Short project description :
 In this project, we will be developing a website capable of discovering recipes based on user-selected ingredients. The website will display relevant search results, and upon selecting a recipe, a detailed description will be presented, outlining the necessary steps to prepare the dish. Additionally, we aim to provide recommendations featuring similar recipes to the user. The technologies employed for this project include the React framework and Firebase.
 
-The API used for this project is: https://rapidapi.com/webknox/api/recipe
+The API used for this project is:
+https://rapidapi.com/webknox/api/recipe
 
 ## What we have done :
 - [x] We created the most of the view componenets and presenters. 
