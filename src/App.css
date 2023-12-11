@@ -231,5 +231,11 @@
   font-family:'Avenir Next';
 }
 
+.backToSearchButton {
+  float: right;
+  margin-right: 50px;
+  
+}
+
 
 

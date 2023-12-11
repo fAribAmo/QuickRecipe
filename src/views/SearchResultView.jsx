@@ -2,10 +2,23 @@ import React from 'react';
 import NavigationBar from './NavigationBarView';
 
 function SearchResultView(props){
+   function navigateBackToSearchCB() {
+      props.navigateBackToSearch();
+   }
     return (
       <div className='HomePage' >
          <div><NavigationBar /></div>
-         <div className='container'>{props.recipes.map(searchResultImageNameCB)}</div>
+         <div>
+            <button onClick={navigateBackToSearchCB}
+                     className='backToSearchButton'
+               >
+               Back to Search
+            </button>
+         </div>
+         <div className='container'>
+            {props.recipes.map(searchResultImageNameCB)}
+         </div>
+         
       </div>
       
     );
@@ -44,6 +57,7 @@ function SearchResultView(props){
             );
          }
       }
+
     }
    }
   

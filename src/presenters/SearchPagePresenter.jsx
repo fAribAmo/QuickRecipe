@@ -6,8 +6,7 @@ import React from 'react';
 //TODO(@siyu): Remove this once we are done with testing local data.
 import testdata from '/src/assets/testdata.json';
 
-export default 
-observer(
+export default observer(
 function SearchPagePresenter(props){
   const navigate = useNavigate();
 
