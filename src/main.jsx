@@ -5,6 +5,7 @@ import './index.css';
 import "/src/firebaseModel.js";
 import { observable } from 'mobx';
 import IngredientsModel from '/src/IngredientsModel.js';
+import { getRecipeInformation } from './recipeSource.js';
 
 const reactiveModel = observable(IngredientsModel);
 
@@ -15,3 +16,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 
 window.model = reactiveModel;
+
+window.getRecipeInformation = getRecipeInformation;

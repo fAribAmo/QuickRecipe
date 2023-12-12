@@ -5,6 +5,9 @@ function SearchResultView(props){
    function navigateBackToSearchCB() {
       props.navigateBackToSearch();
    }
+   function navigateToDetailsCB() {
+      props.navigateToDetails();
+   }
     return (
       <div className='HomePage' >
          <div><NavigationBar /></div>
@@ -12,17 +15,16 @@ function SearchResultView(props){
             <button onClick={navigateBackToSearchCB}
                      className='backToSearchButton'
                >
-               Back to Search
+               Back to Search 
             </button>
          </div>
-         <div className='container'>
+         <div className='container' onClick={navigateToDetailsCB}>
             {props.recipes.map(searchResultImageNameCB)}
          </div>
          
       </div>
       
     );
-
     function searchResultImageNameCB(searchResult){
       return (
         <span key={searchResult.id} onClick={() => getDish(searchResult)}>

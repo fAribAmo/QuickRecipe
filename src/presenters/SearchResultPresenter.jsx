@@ -10,6 +10,9 @@ function SearchResultPresenter(props) {
     function navigateToSearchACB() {
         navigate('/search'); 
     }
+    function navigateToDetailsACB() {
+        navigate('/detail'); 
+    }
 
     if(!props.model.searchResultsPromiseState.promise) {
         return <div><p>no data</p></div>;
@@ -33,6 +36,7 @@ function SearchResultPresenter(props) {
                 <SearchResultView 
                                  recipes={props.model.searchResultsPromiseState.data}
                                  navigateBackToSearch={navigateToSearchACB}
+                                 navigateToDetails={navigateToDetailsACB}
                                  />
             </div>
          )
