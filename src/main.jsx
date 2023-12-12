@@ -18,3 +18,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 window.model = reactiveModel;
 
 window.getRecipeInformation = getRecipeInformation;
+
+import { configure, reaction } from "mobx";
+configure({ enforceActions: "never", });  // we don't use Mobx actions
+
+import firebaseModel from "./firebaseModel.js";
+import connectToFirebase from "./firebaseModel.js";
+connectToFirebase(reactiveModel, reaction)

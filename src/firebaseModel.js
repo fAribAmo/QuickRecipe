@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import {extractRecipeData} from "/src/recipeSource.js";
+import { getRecipeInformation } from "/src/recipeSource.js";
 import { getDatabase, ref, get, set, onValue, child, onChildAdded, onChildRemoved, off} from "firebase/database";
 import firebaseConfig from "/src/firebaseConfig.js";
 
@@ -14,22 +14,20 @@ export function modelToPersistence(model) {
         return ingredient;
     } 
     return {
-        currRecipe : model.currentRecipe,
         ingredientIDs : model.ingredientArray.map(tranformToDishIDSACB).sort()
     };
 }
 
 export function persistenceToModel(data, model) {
-    if(data) { //om reaktiva objekt har ändrat tillstånd
-        model.currentRecipe = data.currRecipe
+    if(data){ //om reaktiva objekt har ändrat tillstånd
         
         //kanske måste ändra till att söka efter url
-        return extractRecipeData(data.ingredientIDs || []).then(saveToModelACB);
+        //id:t nedan ska ändras till data.ingredientID:s
+        return getRecipeInformation(11352).then(saveToModelACB);
     } else { //om inget ändrats
-        model.currentRecipe = null
         model.ingredientArray = []
         //samma som övre kommentar
-        return extractRecipeData(model.ingredientArray).then(saveToModelACB)
+        return getRecipeInformation(11352).then(saveToModelACB)
     }
     
     function saveToModelACB(returnedIngredients) {
@@ -54,15 +52,15 @@ export function readFromFirebase(model){
     return get(rf).then(convertACB).then(setModelReadyACB)
 }
 
-export default function connectToFirebase(model, watchFunction){
+export default function connectToFirebase(model, watchFunction) {
     const readFirebaseObject = readFromFirebase(model)
     watchFunction(checkACB, sideEffectACB)
     function checkACB() {
         return [
-            model.currentRecipe,
-            model.ingredientArray 
+            model.ingredientArray,
         ]
     }
+
     function sideEffectACB() {
         saveToFirebase(model)
     }
