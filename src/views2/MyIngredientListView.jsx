@@ -15,12 +15,14 @@ function IngredientListView(props) {
         <div>
             <h2 className='text4' > My Ingredient List </h2>
             <table>
+                <tbody>
                 {
                 //måste kanske sorteras som i labben först
                 //med && kollar påståendet om det finns null element
                 props.ingredientsAccess && props.ingredientsAccess.map(ingredientsToTableRowCB)
                 //kan ha total ingredients i td-element nedanför table
                 }
+                </tbody>
             </table>
         </div>
 
