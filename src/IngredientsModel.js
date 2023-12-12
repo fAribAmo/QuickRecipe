@@ -40,7 +40,7 @@ export default {
   },
 
   doSearch(searchParams) { //goes to resolvePromise.js
-    resolvePromise(this.searchRecipesByIngredients(searchParams), this.searchResultsPromiseState)
+    resolvePromise(searchRecipesByIngredients(searchParams), this.searchResultsPromiseState)
   },
 
   //setNumberOfIngredients{}?
