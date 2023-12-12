@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IngredientListView = ({ ingredients, onRemove }) => {
+function IngredientListView({ ingredients, onRemove }){
   return (
     <div>
       {ingredients.map((ingredient, index) => (

@@ -1,21 +1,21 @@
 import React from 'react';
-import HomePageView from './views/HomePageView';
-import SearchPageView from './views/SearchPageView';
-import ContactPageView from './views/ContactPageView';
-import SearchResultView from './views/SearchResultView';
+import HomePagePresenter from './presenters/HomePagePresenter';
+import SearchPagePresenter from './presenters/SearchPagePresenter';
+import ContactPagePresenter from './presenters/ContactPagePresenter';
+import SearchResultPresenter from './presenters/SearchResultPresenter';
+import SearchDetailsPresenter from './presenters/SearchDetailsPresenter';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'; 
 
-
-const App = () => {
+const App = (props) => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePageView />} />
-        <Route path="/search" element={<SearchPageView />} />
-        <Route path="/contact" element={<ContactPageView />} />
-        <Route path="/result" element={<SearchResultView />} />
-        
+        <Route path="/" element={<HomePagePresenter />} />
+        <Route path="/search" element={<SearchPagePresenter model={props.model}/>} />
+        <Route path="/contact" element={<ContactPagePresenter />} />
+        <Route path="/result" element={<SearchResultPresenter model={props.model}/>} />
+        <Route path="/detail" element={<SearchDetailsPresenter model={props.model}/>} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>

@@ -10,12 +10,12 @@ const PATH="Recipe_by_ingredient_search_app";
 const rf = ref(db, PATH)
 set(ref(db, PATH+"/test"), "dummy");
 export function modelToPersistence(model) {
-    function tranformToDishIDSACB(recipe) {
-        return recipe.id;
+    function tranformToDishIDSACB(ingredient) {
+        return ingredient;
     } 
     return {
         currRecipe : model.currentRecipe,
-        ingredientIDs : model.ingredientArray.map(tranformToIDSACB).sort()
+        ingredientIDs : model.ingredientArray.map(tranformToDishIDSACB).sort()
     };
 }
 
@@ -32,10 +32,8 @@ export function persistenceToModel(data, model) {
         return extractRecipeData(model.ingredientArray).then(saveToModelACB)
     }
     
-    //måste ändras så att ingredienserna ändras, inte så att de blir till ett recept
-    //gör returnedRecipeIngredients.map eller nånting för att spara alla ingredienser
-    function saveToModelACB(returnedRecipeIngredients) {
-        model.ingredientArray = returnedRecipeIngredients;
+    function saveToModelACB(returnedIngredients) {
+        model.ingredientArray = returnedIngredients;
     }
 }
 

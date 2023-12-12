@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavigationBar from './NavigationBarView';
 
 
-const ContactPageView = () => {
+function ContactPageView (){
     return (
       <div className="ContactPage">
         <h1>Contact Us</h1>

@@ -10,20 +10,19 @@ export function searchRecipesByIngredients(searchParams){
             'X-RapidAPI-Host': 'webknox-recipes.p.rapidapi.com'
         }
     };
-    function getTheJSON_ACB(resp){
+
+    function getJSONACB(resp){
         if (resp.ok) {
             return resp.json(); 
         }else{
             throw new Error("resp code:", resp.status);
         }
     }
-    function keepJustResultArrayACB(param){
-        return param.results;
-    }
+
     function catchRecipeError(error){
         throw error;
     }
-    return fetch(url, options).then(getTheJSON_ACB).then(keepJustResultArrayACB).catch(catchRecipeError);
+    return fetch(url, options).then(getJSONACB).catch(catchRecipeError);
 }
 /**This API utilizes the search parameters entered in the 
  * search bar to provide a list of autocompleted ingredients.*/

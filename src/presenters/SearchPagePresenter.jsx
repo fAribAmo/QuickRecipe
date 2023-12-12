@@ -1,32 +1,54 @@
-export default class SearchPagePresenter {
-    constructor(model, viewSetters) {
-      this.model = model;
-      this.setIngredients = viewSetters.setIngredients;
-    }
-  
-    handleAddIngredient = (ingredient) => {
-      this.model.addIngredient(ingredient);
-      this.updateView();
-    };
-  
-    handleRemoveIngredient = (ingredient) => {
-      this.model.removeIngredient(ingredient);
-      this.updateView();
-    };
+import { observer } from "mobx-react-lite";
+import SearchPageView from "../views/SearchPageView";
+import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
+//TODO(@siyu): Remove this once we are done with testing local data.
+import testdata from '/src/assets/testdata.json';
 
+export default observer(
+function SearchPagePresenter(props){
+  const navigate = useNavigate();
 
-
-
-
-  
-    // Methods to manage mandatory and unwanted ingredients can be added here later
-  
-    updateView() {
-      // Call the setters provided by the view to update the UI
-      this.setIngredients([...this.model.ingredients]);
-      // Mandatory and unwanted ingredients can be updated similarly here later
-    }
-  
-    // Additional methods...
+  function addIngredientACB(ingredient){
+    props.model.addIngredient(ingredient);
   }
+
+  function removeIngredientACB(ingredient){
+    props.model.removeIngredient(ingredient);
+  }
+
+  function handleSearchClickACB(){
+    //TODO(@siyu): Remove this once we are done with testing local data.
+    //props.model.doSearch();
+    props.model.searchResultsPromiseState = {
+      promise: 'foo',
+      error: null,
+      data: testdata,
+    }
+    navigate('/result');
+  }
+
+  function setIngredientTextACB(ingredientText){
+    props.model.setIngredientText(ingredientText);
+  }
+
+  function handleAddClickACB(){
+    props.model.addIngredientFromInput();
+    props.model.setIngredientText('');
+  }
+
+  return (
+    <div>
+      < SearchPageView ingredients={props.model.ingredientArray}
+                       ingredientText={props.model.ingredientText}
+                       addIngredient={addIngredientACB}
+                       removeIngredient={removeIngredientACB}
+                       handleSearchClick={handleSearchClickACB}
+                       handleAddClick={handleAddClickACB}
+                       setIngredientText={setIngredientTextACB}/>
+    </div>
+  )
+  
+}
+)

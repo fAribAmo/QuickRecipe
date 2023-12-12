@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const IngredientInputView = ({ onAdd }) => {
-  const [input, setInput] = useState('');
+function IngredientInputView(props){
 
-  const handleAddClick = () => {
-    onAdd(input);
-    setInput('');
-  };
+  function setIngredientText(evt){
+    props.setIngredientText(evt.target.value);
+    return evt.target.value;
+  }
+
+  function handleAddClick(){
+    props.handleAddClick();
+  }
 
   return (
     <div>
       <input
         type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={props.ingredientText}
+        onChange={setIngredientText}
         placeholder="Enter ingredients"
         className='search-input'
       />
