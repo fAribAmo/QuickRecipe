@@ -1,0 +1,484 @@
+{
+    "vegetarian": true,
+    "vegan": false,
+    "glutenFree": true,
+    "dairyFree": true,
+    "veryHealthy": false,
+    "cheap": false,
+    "veryPopular": true,
+    "sustainable": false,
+    "lowFodmap": false,
+    "weightWatcherSmartPoints": 2,
+    "gaps": "no",
+    "preparationMinutes": -1,
+    "cookingMinutes": -1,
+    "aggregateLikes": 25105,
+    "healthScore": 6,
+    "creditsText": "Skinny Taste",
+    "sourceName": "Skinny Taste",
+    "pricePerServing": 59.39,
+    "extendedIngredients": [
+        {
+            "id": 1123,
+            "aisle": "Milk, Eggs, Other Dairy",
+            "image": "egg.png",
+            "consistency": "SOLID",
+            "name": "eggs",
+            "nameClean": "egg",
+            "original": "2 large eggs, beaten",
+            "originalName": "eggs, beaten",
+            "amount": 2,
+            "unit": "large",
+            "meta": [
+                "beaten"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 2,
+                    "unitShort": "large",
+                    "unitLong": "larges"
+                },
+                "metric": {
+                    "amount": 2,
+                    "unitShort": "large",
+                    "unitLong": "larges"
+                }
+            }
+        },
+        {
+            "id": 11215,
+            "aisle": "Produce",
+            "image": "garlic.png",
+            "consistency": "SOLID",
+            "name": "garlic",
+            "nameClean": "garlic",
+            "original": "4 cloves crushed garlic",
+            "originalName": "crushed garlic",
+            "amount": 4,
+            "unit": "cloves",
+            "meta": [
+                "crushed"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 4,
+                    "unitShort": "cloves",
+                    "unitLong": "cloves"
+                },
+                "metric": {
+                    "amount": 4,
+                    "unitShort": "cloves",
+                    "unitLong": "cloves"
+                }
+            }
+        },
+        {
+            "id": 1082047,
+            "aisle": "Spices and Seasonings",
+            "image": "salt.jpg",
+            "consistency": "SOLID",
+            "name": "kosher salt and pepper",
+            "nameClean": "kosher salt",
+            "original": "1/2 tsp kosher salt and fresh black pepper to taste",
+            "originalName": "kosher salt and fresh black pepper to taste",
+            "amount": 0.5,
+            "unit": "tsp",
+            "meta": [
+                "fresh",
+                "black",
+                "to taste"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 0.5,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                },
+                "metric": {
+                    "amount": 0.5,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                }
+            }
+        },
+        {
+            "id": 4053,
+            "aisle": "Oil, Vinegar, Salad Dressing",
+            "image": "olive-oil.jpg",
+            "consistency": "SOLID",
+            "name": "olive oil",
+            "nameClean": "olive oil",
+            "original": "4 teaspoons olive oil",
+            "originalName": "olive oil",
+            "amount": 4,
+            "unit": "teaspoons",
+            "meta": [],
+            "measures": {
+                "us": {
+                    "amount": 4,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                },
+                "metric": {
+                    "amount": 4,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                }
+            }
+        },
+        {
+            "id": 11291,
+            "aisle": "Produce",
+            "image": "spring-onions.jpg",
+            "consistency": "SOLID",
+            "name": "scallions",
+            "nameClean": "spring onions",
+            "original": "1/2 cup chopped scallions",
+            "originalName": "chopped scallions",
+            "amount": 0.5,
+            "unit": "cup",
+            "meta": [
+                "chopped"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 0.5,
+                    "unitShort": "cups",
+                    "unitLong": "cups"
+                },
+                "metric": {
+                    "amount": 50,
+                    "unitShort": "g",
+                    "unitLong": "grams"
+                }
+            }
+        },
+        {
+            "id": 11507,
+            "aisle": "Produce",
+            "image": "sweet-potato.png",
+            "consistency": "SOLID",
+            "name": "sweet potato",
+            "nameClean": "sweet potato",
+            "original": "1 large (11 oz peeled) sweet potato, peeled",
+            "originalName": "large peeled) sweet potato, peeled",
+            "amount": 11,
+            "unit": "oz",
+            "meta": [
+                "peeled"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 11,
+                    "unitShort": "oz",
+                    "unitLong": "ounces"
+                },
+                "metric": {
+                    "amount": 311.845,
+                    "unitShort": "g",
+                    "unitLong": "grams"
+                }
+            }
+        }
+    ],
+    "id": 717040,
+    "title": "Spiralized Sweet Potato Latkes Skinnytaste",
+    "readyInMinutes": 45,
+    "servings": 4,
+    "sourceUrl": "http://www.skinnytaste.com/2015/04/spiralized-sweet-potato-latkes.html",
+    "image": "https://spoonacular.com/recipeImages/717040-556x370.jpg",
+    "imageType": "jpg",
+    "summary": "The recipe Spiralized Sweet Potato Latkes Skinnytaste is ready <b>in about 45 minutes</b> and is definitely an amazing <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> option for lovers of Jewish food. One portion of this dish contains approximately <b>5g of protein</b>, <b>6g of fat</b>, and a total of <b>147 calories</b>. For <b>59 cents per serving</b>, this recipe <b>covers 12%</b> of your daily requirements of vitamins and minerals. This recipe serves 4. It works well as an inexpensive hor d'oeuvre for <b>Hanukkah</b>. This recipe is liked by 25105 foodies and cooks. It is brought to you by Skinny Taste. A mixture of scallions, olive oil, sweet potato, and a handful of other ingredients are all it takes to make this recipe so tasty. With a spoonacular <b>score of 65%</b>, this dish is pretty good. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/spiralized-sweet-potato-latkes-skinnytaste-1231309\">Spiralized Sweet Potato Latkes Skinnytaste</a>, <a href=\"https://spoonacular.com/recipes/spiralized-parsnip-latkes-624401\">Spiralized Parsnip Latkes</a>, and <a href=\"https://spoonacular.com/recipes/sweet-potato-latkes-573624\">Sweet Potato Latkes</a>.",
+    "cuisines": [
+        "Jewish"
+    ],
+    "dishTypes": [
+        "side dish",
+        "antipasti",
+        "starter",
+        "snack",
+        "appetizer",
+        "antipasto",
+        "hor d'oeuvre"
+    ],
+    "diets": [
+        "gluten free",
+        "dairy free",
+        "paleolithic",
+        "lacto ovo vegetarian",
+        "primal",
+        "whole 30"
+    ],
+    "occasions": [
+        "hanukkah"
+    ],
+    "winePairing": {
+        "pairedWines": [],
+        "pairingText": "",
+        "productMatches": []
+    },
+    "instructions": "Latkes  a healthier take on a traditional deep fried potato pancakes, these are lightly pan fried in a small amount of olive oil, made with sweet potatoes instead of white and made EASY by using a spiralizer because it eliminates the need to grate the potatoes, which can take a lot of time. With the spiralizer, it only takes minutes. Of course, if you don't have a spiralizer you can grate them with a box grater instead.The question I get asked most often is what spiralizer I own. There are lots on the market which are fine, but I love my Paderno Spiral VegetableSlicer because it's made well and it's easy to use and clean. I own the three-blade which is perfect for what I need.The ingredients are simple: sweet potatoes, scallions, garlic and egg. I knew I wanted to lightly saute them in a pan with just a trace amount of oil and tried to see if they would hold without using flour and they worked out perfect, so they are kosher, gluten-free, and paleo-friendly. You'll want to make them and eat them right away, they are best when they are hot. These go perfect with Braised Brisket  enjoy!Spiralized Sweet Potato LatkesSkinnytaste.comServings: 4  Size: 3 latkes  Points+: 3 pt  Smart Points: 5Calories: 125  Fat: 7 g  Carb: 11 g  Fiber: 2 g  Protein: 4.5 g  Sugar: 4 gSodium: 194 mg  Cholest: 93 mgIngredients:1 large (11 oz peeled) sweet potato, peeled1/2 cup chopped scallions2 large eggs, beaten4 cloves crushed garlic1/2 tsp kosher salt and fresh black pepper to taste4 teaspoons olive oilDirections:Cut the sweet potato in half so it fits easily into the spiralizer. Spiralize with the smaller noodle blade of the spiralizer. Cut into smaller pieces, about 5 inches long.Mix together the sweet potatoes, scallions, eggs, garlic, salt and pepper in a large bowl and mix well to combine.Heat a large nonstick skillet over medium-low heat. When hot add 1 teaspoon of oil and swirl around the pan. Using a fork, grab some of the sweet potato mixture (roughly 1/3 cup), and gently place it in the skillet lightly pressing down with the fork. You can fit 4 on the skillet. Cook until golden on the bottom, about 3 minutes then flip with a spatula. Use the spatula to press them down to flatten and cook until golden, about 3 more minutes.Makes about 12.",
+    "analyzedInstructions": [
+        {
+            "name": "",
+            "steps": [
+                {
+                    "number": 1,
+                    "step": "Latkes  a healthier take on a traditional deep fried potato pancakes, these are lightly pan fried in a small amount of olive oil, made with sweet potatoes instead of white and made EASY by using a spiralizer because it eliminates the need to grate the potatoes, which can take a lot of time. With the spiralizer, it only takes minutes. Of course, if you don't have a spiralizer you can grate them with a box grater instead.The question I get asked most often is what spiralizer I own. There are lots on the market which are fine, but I love my Paderno Spiral Vegetable",
+                    "ingredients": [
+                        {
+                            "id": 11507,
+                            "name": "sweet potato",
+                            "localizedName": "sweet potato",
+                            "image": "sweet-potato.png"
+                        },
+                        {
+                            "id": 4053,
+                            "name": "olive oil",
+                            "localizedName": "olive oil",
+                            "image": "olive-oil.jpg"
+                        },
+                        {
+                            "id": 11583,
+                            "name": "vegetable",
+                            "localizedName": "vegetable",
+                            "image": "mixed-vegetables.png"
+                        },
+                        {
+                            "id": 11352,
+                            "name": "potato",
+                            "localizedName": "potato",
+                            "image": "potatoes-yukon-gold.png"
+                        }
+                    ],
+                    "equipment": [
+                        {
+                            "id": 404778,
+                            "name": "box grater",
+                            "localizedName": "box grater",
+                            "image": "grater.jpg"
+                        },
+                        {
+                            "id": 404645,
+                            "name": "frying pan",
+                            "localizedName": "frying pan",
+                            "image": "pan.png"
+                        }
+                    ]
+                },
+                {
+                    "number": 2,
+                    "step": "Slicer because it's made well and it's easy to use and clean. I own the three-blade which is perfect for what I need.The ingredients are simple: sweet potatoes, scallions, garlic and egg. I knew I wanted to lightly saute them in a pan with just a trace amount of oil and tried to see if they would hold without using flour and they worked out perfect, so they are kosher, gluten-free, and paleo-friendly. You'll want to make them and eat them right away, they are best when they are hot. These go perfect with Braised Brisket  enjoy!Spiralized Sweet Potato Latkes",
+                    "ingredients": [
+                        {
+                            "id": 11507,
+                            "name": "sweet potato",
+                            "localizedName": "sweet potato",
+                            "image": "sweet-potato.png"
+                        },
+                        {
+                            "id": 11291,
+                            "name": "green onions",
+                            "localizedName": "green onions",
+                            "image": "spring-onions.jpg"
+                        },
+                        {
+                            "id": 11215,
+                            "name": "garlic",
+                            "localizedName": "garlic",
+                            "image": "garlic.png"
+                        },
+                        {
+                            "id": 20081,
+                            "name": "all purpose flour",
+                            "localizedName": "all purpose flour",
+                            "image": "flour.png"
+                        },
+                        {
+                            "id": 1123,
+                            "name": "egg",
+                            "localizedName": "egg",
+                            "image": "egg.png"
+                        },
+                        {
+                            "id": 4582,
+                            "name": "cooking oil",
+                            "localizedName": "cooking oil",
+                            "image": "vegetable-oil.jpg"
+                        }
+                    ],
+                    "equipment": [
+                        {
+                            "id": 404645,
+                            "name": "frying pan",
+                            "localizedName": "frying pan",
+                            "image": "pan.png"
+                        }
+                    ]
+                },
+                {
+                    "number": 3,
+                    "step": "Skinnytaste.com",
+                    "ingredients": [],
+                    "equipment": []
+                },
+                {
+                    "number": 4,
+                    "step": "Servings: 4  Size: 3 latkes  Points+: 3 pt  Smart Points: 5Calories: 125  Fat: 7 g  Carb: 11 g  Fiber: 2 g  Protein: 4.5 g  Sugar: 4 gSodium: 194 mg  Cholest: 93 mgIngredients:1 large (11 oz peeled) sweet potato, peeled1/2 cup chopped scallions2 large eggs, beaten4 cloves crushed garlic1/2 tsp kosher salt and fresh black pepper to taste4 teaspoons olive oil",
+                    "ingredients": [
+                        {
+                            "id": 1002030,
+                            "name": "black pepper",
+                            "localizedName": "black pepper",
+                            "image": "pepper.jpg"
+                        },
+                        {
+                            "id": 11507,
+                            "name": "sweet potato",
+                            "localizedName": "sweet potato",
+                            "image": "sweet-potato.png"
+                        },
+                        {
+                            "id": 1082047,
+                            "name": "kosher salt",
+                            "localizedName": "kosher salt",
+                            "image": "salt.jpg"
+                        },
+                        {
+                            "id": 4053,
+                            "name": "olive oil",
+                            "localizedName": "olive oil",
+                            "image": "olive-oil.jpg"
+                        },
+                        {
+                            "id": 1002011,
+                            "name": "clove",
+                            "localizedName": "clove",
+                            "image": "cloves.jpg"
+                        },
+                        {
+                            "id": 19335,
+                            "name": "sugar",
+                            "localizedName": "sugar",
+                            "image": "sugar-in-bowl.png"
+                        },
+                        {
+                            "id": 1123,
+                            "name": "egg",
+                            "localizedName": "egg",
+                            "image": "egg.png"
+                        }
+                    ],
+                    "equipment": []
+                },
+                {
+                    "number": 5,
+                    "step": "Cut the sweet potato in half so it fits easily into the spiralizer. Spiralize with the smaller noodle blade of the spiralizer.",
+                    "ingredients": [
+                        {
+                            "id": 11507,
+                            "name": "sweet potato",
+                            "localizedName": "sweet potato",
+                            "image": "sweet-potato.png"
+                        },
+                        {
+                            "id": 20420,
+                            "name": "pasta",
+                            "localizedName": "pasta",
+                            "image": "fusilli.jpg"
+                        }
+                    ],
+                    "equipment": []
+                },
+                {
+                    "number": 6,
+                    "step": "Cut into smaller pieces, about 5 inches long.",
+                    "ingredients": [],
+                    "equipment": []
+                },
+                {
+                    "number": 7,
+                    "step": "Mix together the sweet potatoes, scallions, eggs, garlic, salt and pepper in a large bowl and mix well to combine.",
+                    "ingredients": [
+                        {
+                            "id": 1102047,
+                            "name": "salt and pepper",
+                            "localizedName": "salt and pepper",
+                            "image": "salt-and-pepper.jpg"
+                        },
+                        {
+                            "id": 11507,
+                            "name": "sweet potato",
+                            "localizedName": "sweet potato",
+                            "image": "sweet-potato.png"
+                        },
+                        {
+                            "id": 11291,
+                            "name": "green onions",
+                            "localizedName": "green onions",
+                            "image": "spring-onions.jpg"
+                        },
+                        {
+                            "id": 11215,
+                            "name": "garlic",
+                            "localizedName": "garlic",
+                            "image": "garlic.png"
+                        },
+                        {
+                            "id": 1123,
+                            "name": "egg",
+                            "localizedName": "egg",
+                            "image": "egg.png"
+                        }
+                    ],
+                    "equipment": [
+                        {
+                            "id": 404783,
+                            "name": "bowl",
+                            "localizedName": "bowl",
+                            "image": "bowl.jpg"
+                        }
+                    ]
+                },
+                {
+                    "number": 8,
+                    "step": "Heat a large nonstick skillet over medium-low heat. When hot add 1 teaspoon of oil and swirl around the pan. Using a fork, grab some of the sweet potato mixture (roughly 1/3 cup), and gently place it in the skillet lightly pressing down with the fork. You can fit 4 on the skillet. Cook until golden on the bottom, about 3 minutes then flip with a spatula. Use the spatula to press them down to flatten and cook until golden, about 3 more minutes.Makes about 12.",
+                    "ingredients": [
+                        {
+                            "id": 11507,
+                            "name": "sweet potato",
+                            "localizedName": "sweet potato",
+                            "image": "sweet-potato.png"
+                        },
+                        {
+                            "id": 4582,
+                            "name": "cooking oil",
+                            "localizedName": "cooking oil",
+                            "image": "vegetable-oil.jpg"
+                        }
+                    ],
+                    "equipment": [
+                        {
+                            "id": 404645,
+                            "name": "frying pan",
+                            "localizedName": "frying pan",
+                            "image": "pan.png"
+                        },
+                        {
+                            "id": 404642,
+                            "name": "spatula",
+                            "localizedName": "spatula",
+                            "image": "spatula-or-turner.jpg"
+                        }
+                    ],
+                    "length": {
+                        "number": 6,
+                        "unit": "minutes"
+                    }
+                }
+            ]
+        }
+    ],
+    "originalId": null,
+    "spoonacularScore": 66.03953552246094
+}
