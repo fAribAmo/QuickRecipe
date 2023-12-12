@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
 
+import recipe from '/src/assets/recipe717040.json';
+
 export default observer(
 function SearchResultPresenter(props) {
     const navigate = useNavigate();
@@ -11,6 +13,11 @@ function SearchResultPresenter(props) {
         navigate('/search'); 
     }
     function navigateToDetailsACB() {
+        props.model.searchResultsPromiseState = {
+            promise: 'foo',
+            error: null,
+            data: recipe,
+          }
         navigate('/detail'); 
     }
 
