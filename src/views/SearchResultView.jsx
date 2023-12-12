@@ -25,7 +25,6 @@ function SearchResultView(props){
       </div>
       
     );
-
     function searchResultImageNameCB(searchResult){
       return (
         <span key={searchResult.id} onClick={() => getDish(searchResult)}>

@@ -52,6 +52,29 @@ export function autoCompleteIngerdient(searchparams){
     return fetch(url, options).then(getTheJSON_ACB).then(keepJustResultArrayACB).catch(catchCompleteIngerdientError);
 }
 /**
+This API endpoint retrieves the detail information of recipe by recipe id*/
+export function getRecipeInformation(id){
+    const url = BASE_URL+"recipes/" + id +"/information";
+    const options = {
+        method: "GET",
+        headers: {
+            "X-Mashape-Key": API_KEY,
+            'X-RapidAPI-Host': 'webknox-recipes.p.rapidapi.com'
+        }
+    };
+    function getTheJSON_ACB(resp){
+        if (resp.ok) {
+            return resp.json(); 
+        }else{
+            throw new Error("resp code:", resp.status);
+        }
+    }
+    function catchRecipeInformationError(error){
+        throw error;
+    }
+    return fetch(url, options).then(getTheJSON_ACB).catch(catchRecipeInformationError);
+}
+/**
 This API endpoint retrieves the recipe itself by the property "text", and other information about recipe*/
 export function extractRecipeData(recipeURL){
     const newURL = recipeURL.replace(":", "%3A");

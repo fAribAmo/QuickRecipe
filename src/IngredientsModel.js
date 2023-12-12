@@ -1,25 +1,11 @@
-
-import {extractRecipeData} from "/src/recipeSource.js";
 import { searchRecipesByIngredients } from "./recipeSource.js";
 import resolvePromise from "./resolvePromise.js";
 
 export default {
     
   ingredientArray: [],
-  searchResultRecipies: [],
-  currentRecipe: null,
   ingredientText: '',
   searchResultsPromiseState: {},
-  currentRecipePromiseState: {},
-
-  setCurrentRecipe(id) { //måste ändras till urlsökning
-    if(id) {
-      if(!(id === this.currentRecipe)) {
-        this.currentRecipe = id;
-        resolvePromise(extractRecipeData(id), this.currentRecipePromiseState)
-      }
-    }
-  },
 
   addIngredient(ingredient) {
     this.ingredientArray=[...this.ingredientArray,ingredient];
@@ -45,6 +31,11 @@ export default {
   doSearch() { //goes to resolvePromise.js
     resolvePromise(searchRecipesByIngredients(this.ingredientArray), this.searchResultsPromiseState)
   },
+
+  seeRecipeDetails(recipeId){
+    resolvePromise(getRecipeInformation(recipeId), this.searchResultsPromiseState)
+  }
+
 
   //setNumberOfIngredients{}?
 }
