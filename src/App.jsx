@@ -14,7 +14,7 @@ const App = (props) => {
         <Route path="/search" element={<SearchPagePresenter model={props.model}/>} />
         <Route path="/contact" element={<ContactPagePresenter />} />
         <Route path="/result" element={<SearchResultPresenter model={props.model}/>} />
-        
+
         {/* Add more routes as needed */}
       </Routes>
     </Router>
