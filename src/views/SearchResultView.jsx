@@ -1,12 +1,18 @@
 import React from 'react';
 import NavigationBar from './NavigationBarView';
+import model from '../IngredientsModel';
 
 function SearchResultView(props){
    function navigateBackToSearchCB() {
       props.navigateBackToSearch();
    }
-   function navigateToDetailsCB() {
+   function navigateToDetailsCB(searchResult) {
+      console.log(searchResult.id);
+    
       props.navigateToDetails();
+      model.saveCurrentRecipe(searchResult.id);
+
+      console.log( model.currentRecipe);
    }
     return (
       <div className='HomePage' >
@@ -18,7 +24,7 @@ function SearchResultView(props){
                Back to Search 
             </button>
          </div>
-         <div className='container' onClick={navigateToDetailsCB}>
+         <div className='container'>
             {props.recipes.map(searchResultImageNameCB)}
          </div>
          
@@ -27,7 +33,7 @@ function SearchResultView(props){
     );
     function searchResultImageNameCB(searchResult){
       return (
-        <span key={searchResult.id} onClick={() => getDish(searchResult)}>
+        <span key={searchResult.id} onClick={() => navigateToDetailsCB(searchResult)}>
             <div className='item'>
                <div><img src={searchResult.image} width="300" height="236"></img></div>
                <div className='content'>
