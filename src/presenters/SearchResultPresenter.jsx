@@ -12,13 +12,15 @@ function SearchResultPresenter(props) {
     function navigateToSearchACB() {
         navigate('/search'); 
     }
-    function navigateToDetailsACB() {
+    function navigateToDetailsACB(dish) {
         props.model.searchResultsPromiseState = {
             promise: 'foo',
             error: null,
             data: recipe,
           }
-        navigate('/detail'); 
+        getDishDetails(dish.id);
+          navigate('/details', { state: { selectedDish: dish } }); // Pass the selected dish as state
+
     }
 
     if(!props.model.searchResultsPromiseState.promise) {
@@ -43,7 +45,7 @@ function SearchResultPresenter(props) {
                 <SearchResultView 
                                  recipes={props.model.searchResultsPromiseState.data}
                                  navigateBackToSearch={navigateToSearchACB}
-                                 navigateToDetails={navigateToDetailsACB}
+                                 onDishClick={navigateToDetailsACB}
                                  />
             </div>
          )
