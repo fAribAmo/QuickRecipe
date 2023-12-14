@@ -50,6 +50,14 @@ export default {
   seeRecipeDetails(recipeId){
     resolvePromise(getRecipeInformation(recipeId), this.searchResultsPromiseState)
   },
+//**Den här kan man använda istället för setCurrentRecipe För att undvika använda API *//
+  saveCurrentRecipe(id){
+    if (id) {
+      if(!(id === this.currentRecipe)) {
+       this.currentRecipe = id;
+      }
+    }
+  },
 
   setCurrentRecipe(id) { //måste ändras till urlsökning
     if(id) {

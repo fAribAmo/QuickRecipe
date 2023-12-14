@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import SearchResultView from "../views/SearchResultView";
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
-
+import model from '../IngredientsModel';
 
 import recipe from '/src/assets/recipe717040.json';
 
@@ -12,15 +12,14 @@ function SearchResultPresenter(props) {
     function navigateToSearchACB() {
         navigate('/search'); 
     }
-    function navigateToDetailsACB(dish) {
-        props.model.searchResultsPromiseState = {
+    function navigateToDetailsACB() {
+        //**This is where the data is */
+        model.searchResultsPromiseState = {
             promise: 'foo',
             error: null,
             data: recipe,
           }
-        getDishDetails(dish.id);
-          navigate('/details', { state: { selectedDish: dish } }); // Pass the selected dish as state
-
+        navigate('/detail'); 
     }
 
     if(!props.model.searchResultsPromiseState.promise) {
@@ -45,7 +44,7 @@ function SearchResultPresenter(props) {
                 <SearchResultView 
                                  recipes={props.model.searchResultsPromiseState.data}
                                  navigateBackToSearch={navigateToSearchACB}
-                                 onDishClick={navigateToDetailsACB}
+                                 navigateToDetails={navigateToDetailsACB}
                                  />
             </div>
          )
