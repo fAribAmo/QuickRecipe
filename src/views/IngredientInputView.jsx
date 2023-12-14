@@ -20,7 +20,10 @@ function IngredientInputView(props){
         placeholder="Enter ingredients"
         className='search-input'
       />
-      <button className='search-add-button' onClick={handleAddClick}>Add</button>
+      <button className='search-add-button' 
+              onClick={handleAddClick}>
+              Add
+      </button>
     </div>
   );
 };

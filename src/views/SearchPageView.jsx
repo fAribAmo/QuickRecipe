@@ -35,23 +35,26 @@ function SearchPageView(props){
             {/* Left section */}
             <div className="search-page-left">
                 <h2 className='text3'>Add ingredients you need to use:</h2>
-                <IngredientInputView ingredientText={props.ingredientText} setIngredientText={setIngredientText} handleAddClick={handleAddClick} />
+                <IngredientInputView  ingredientText={props.ingredientText} 
+                                      setIngredientText={setIngredientText} 
+                                      handleAddClick={handleAddClick} />
                 <h2 className='text3'>Popular Ingredients:</h2>
-                <PopularIngredientsView handlePopularIngredientClick={addIngredient} />
+                <PopularIngredientsView handlePopularIngredientClick={addIngredient}
+                                        setThisIngredientFirst={setIngredientText} />
             </div>
             {/* Right section */}
             <div id="rectangle" className="placeholder-list">
                 <h2 className='text4'>My Ingredient List</h2>
-                <IngredientListView ingredients={props.ingredients} onRemove={removeIngredient} />
+                <IngredientListView ingredientsAccess={props.ingredients}
+                                    deleteIngredientFromList={removeIngredient}/>
             </div>
-            
         </div>
         <div className='button-container'>
               <button className='button-search' 
                       onClick={handleSearchClick}>
                 Search
               </button>
-            </div>
+        </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import HomePagePresenter from './presenters/HomePagePresenter';
+import AboutPagePresenter from './presenters/AboutPagePresenter';
 import SearchPagePresenter from './presenters/SearchPagePresenter';
 import ContactPagePresenter from './presenters/ContactPagePresenter';
 import SearchResultPresenter from './presenters/SearchResultPresenter';
@@ -14,6 +15,7 @@ const App = (props) => {
         <Route path="/" element={<HomePagePresenter />} />
         <Route path="/search" element={<SearchPagePresenter model={props.model}/>} />
         <Route path="/contact" element={<ContactPagePresenter />} />
+        <Route path="/about" element={<AboutPagePresenter />} />
         <Route path="/result" element={<SearchResultPresenter model={props.model}/>} />
         <Route path="/detail" element={<SearchDetailsPresenter model={props.model}/>} />
         {/* Add more routes as needed */}

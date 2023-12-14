@@ -4,11 +4,19 @@ import resolvePromise from "./resolvePromise.js";
 export default {
     
   ingredientArray: [],
+  currentRecipe: null,
+  ingredientProperty : {},
   ingredientText: '',
+  searchParameters: {},
   searchResultsPromiseState: {},
+  currentRecipePromiseState: {},
+  dummyNumber: 2, //test for firebase config
+  indexCounter: 0,
 
-  addIngredient(ingredient) {
-    this.ingredientArray=[...this.ingredientArray,ingredient];
+  addIngredient(ingredient) { //suggested solution from chatgpt to prevent error
+    this.ingredientArray = Array.isArray(this.ingredientArray)
+    ? [...this.ingredientArray, this.ingredientText]
+    : [this.ingredientText];
   },
 
   addIngredientFromInput(){
@@ -28,12 +36,36 @@ export default {
     this.ingredientText = currentIngredientText;
   },
 
+  setSearchParameters() {
+    function iterateIngredientsCB(ingredient) {
+      return ingredient;
+    }
+    this.searchParameters.query = this.ingredientArray.map(iterateIngredientsCB)
+  },
+
   doSearch() { //goes to resolvePromise.js
-    resolvePromise(searchRecipesByIngredients(this.ingredientArray), this.searchResultsPromiseState)
+    resolvePromise(searchRecipesByIngredients(this.searchParameters), this.searchResultsPromiseState)
   },
 
   seeRecipeDetails(recipeId){
     resolvePromise(getRecipeInformation(recipeId), this.searchResultsPromiseState)
+  },
+
+  setCurrentRecipe(id) { //måste ändras till urlsökning
+    if(id) {
+      if(!(id === this.currentRecipe)) {
+        this.currentRecipe = id;
+        resolvePromise(extractRecipeData(id), this.currentRecipePromiseState)
+      }
+    }
+  },
+
+  setDummyNumberForFirebaseTest(nr) { //test for firebase config 
+    if (nr < 1 || !Number.isInteger(nr)) {
+      throw new Error("number of guests not a positive integer");
+    } else {
+      this.dummyNumber = nr;
+    }
   }
 
 
