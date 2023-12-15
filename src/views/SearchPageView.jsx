@@ -26,6 +26,16 @@ function SearchPageView(props){
     props.handleAddClick();
   }
 
+  function handleDietChange(event) {
+    props.setDiet(event.target.value);
+  }
+
+  function handleIntoleranceChange(event) {
+    // Assuming intolerances can be multiple selections
+    const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
+    props.setIntolerances(selectedOptions);
+  }
+
   // add event handlers using presenter methods here
 
   return (
@@ -42,6 +52,25 @@ function SearchPageView(props){
                 <PopularIngredientsView handlePopularIngredientClick={addIngredient}
                                         setThisIngredientFirst={setIngredientText} />
             </div>
+
+            <dive>
+                <label>Diet:</label>
+                  <select onChange={handleDietChange}>
+                    <option value="">Select Diet</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                  {/* ... other options ... */}
+                </select>
+            
+                <label>Intolerances:</label>
+                  <select multiple onChange={handleIntoleranceChange}>
+                    <option value="egg">Egg</option>
+                    <option value="gluten">Gluten</option>
+                  {/* ... other options ... */}
+                </select>
+              </dive>
+
+
             {/* Right section */}
             <div id="rectangle" className="placeholder-list">
                 <h2 className='text4'>My Ingredient List</h2>

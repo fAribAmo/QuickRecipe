@@ -1,29 +1,46 @@
 import {BASE_URL, API_KEY} from "/src/apiConfig.js";
 /**This API returns a list of recipes based on the array 
  * of ingredients it receives.*/
-export function searchRecipesByIngredients(searchParams){
-    const url = BASE_URL+"recipes/findByIngredients?ingredients=" + searchParams.join("%2C");
+export function searchRecipesByIngredients({ ingredients, diet, intolerances, excludeIngredients }) {
+    // It now accepts additional search criteria, including diet, and incorporate these into the API request.
+    let queryParams = `query=${ingredients.join(",")}`;
+    
+    if (diet) {
+      queryParams += `&diet=${diet}`;
+    }
+  
+    if (intolerances) {
+      queryParams += `&intolerances=${intolerances}`;
+    }
+  
+    if (excludeIngredients) {
+      queryParams += `&excludeIngredients=${excludeIngredients}`;
+    }
+  
+    const url = BASE_URL + "recipes/search?" + queryParams;
+  
     const options = {
-        method: "GET",
-        headers: {
-            'X-RapidAPI-Key': API_KEY,
-            'X-RapidAPI-Host': 'webknox-recipes.p.rapidapi.com'
-        }
+      method: "GET",
+      headers: {
+          'X-RapidAPI-Key': API_KEY,
+          'X-RapidAPI-Host': 'webknox-recipes.p.rapidapi.com'
+      }
     };
-
-    function getJSONACB(resp){
-        if (resp.ok) {
-            return resp.json(); 
-        }else{
-            throw new Error("resp code:", resp.status);
+  
+    return fetch(url, options)
+      .then(response => {
+        if (response.ok) {
+          return response.json(); 
+        } else {
+          throw new Error("Response code:", response.status);
         }
-    }
-
-    function catchRecipeError(error){
+      })
+      .catch(error => {
         throw error;
-    }
-    return fetch(url, options).then(getJSONACB).catch(catchRecipeError);
-}
+      });
+  }
+  
+
 /**This API utilizes the search parameters entered in the 
  * search bar to provide a list of autocompleted ingredients.*/
 export function autoCompleteIngerdient(searchparams){

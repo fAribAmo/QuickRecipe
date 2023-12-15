@@ -22,6 +22,15 @@ function SearchResultPresenter(props) {
         navigate('/detail'); 
     }
 
+    function setDietACB(diet) {
+        props.model.setSelectedDiet(diet);
+      }
+    
+      function setIntolerancesACB(intolerances) {
+        props.model.setSelectedIntolerances(intolerances);
+      }
+
+
     if(!props.model.searchResultsPromiseState.promise) {
         return <div><p>no data</p></div>;
     } else if (!props.model.searchResultsPromiseState.data && !props.model.searchResultsPromiseState.error) {
@@ -45,6 +54,8 @@ function SearchResultPresenter(props) {
                                  recipes={props.model.searchResultsPromiseState.data}
                                  navigateBackToSearch={navigateToSearchACB}
                                  navigateToDetails={navigateToDetailsACB}
+                                 setDiet={setDietACB}
+                                 setIntolerances={setIntolerancesACB}
                                  />
             </div>
          )
