@@ -12,9 +12,11 @@ function SearchResultPresenter(props) {
     function navigateToSearchACB() {
         navigate('/search'); 
     }
-    function navigateToDetailsACB() {
-        //**This is where the data is */
-        model.searchResultsPromiseState = {
+    function navigateToDetailsACB(searchResult) {
+        // TODO@siyu: take away the data here when all tests done.
+        /*This is where the data is */
+        //props.model.setCurrentRecipe(searchResult.id);
+        props.model.currentRecipePromiseState = {
             promise: 'foo',
             error: null,
             data: recipe,

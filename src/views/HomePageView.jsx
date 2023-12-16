@@ -1,6 +1,5 @@
 import React from 'react';
 import NavigationBar from './NavigationBarView';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function HomePageView (props){
   

@@ -14,8 +14,12 @@ function AboutPageView() {
 
           <div className="project-description">
             <h2>Our Project</h2>
-            <p>QuickRecipe was born out of a project for our Interaction Programming and Dynamic Web course. Our goal was to create a user-friendly platform that simplifies the meal preparation process. We focused on intuitive design and responsive features to ensure a seamless experience for users seeking quick and delicious meal solutions.</p>
-            <p>As computer engineering students, we have combined our technical knowledge with our passion for accessible cooking, crafting a web application that caters to busy lifestyles and diverse culinary interests.</p>
+            <p>QuickRecipe was born out of a project for our Interaction Programming and Dynamic Web course, HT 2023, 
+              in KTH Royal Institute of Technology in Stockholm. 
+              Our goal was to create a user-friendly platform that simplifies the meal preparation process. 
+              We focused on intuitive design and responsive features to ensure a seamless experience for users seeking quick and delicious meal solutions.</p>
+            <p>As computer engineering students, we have combined our technical knowledge with our passion for accessible cooking, 
+              crafting a web application that caters to busy lifestyles and diverse culinary interests.</p>
           </div>
 
           <div className="team-container">
@@ -39,7 +43,7 @@ function AboutPageView() {
 const teamMembers = [
   { name: 'Fariba Mohammadi', background: 'Computer Engineering Student' },
   { name: 'Munira Ahmed', background: 'Computer Engineering Student' },
-  { name: 'Syu Lu', background: 'Computer Engineering Student' },
+  { name: 'Siyu Lu', background: 'Computer Engineering Student' },
   { name: 'Dipsikha Dutta', background: 'Computer Engineering Student' },
 ];
 

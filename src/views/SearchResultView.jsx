@@ -7,12 +7,8 @@ function SearchResultView(props){
       props.navigateBackToSearch();
    }
    function navigateToDetailsCB(searchResult) {
-      console.log(searchResult.id);
-    
       props.navigateToDetails();
       model.saveCurrentRecipe(searchResult.id);
-
-      console.log( model.currentRecipe);
    }
     return (
       <div className='HomePage' >
@@ -56,7 +52,6 @@ function SearchResultView(props){
          return ingredient_str;
       }
       function getIngredientsTextCB(searchResult, index, array){
-         console.log(index);
          if(index === array.length -1){
             return searchResult.name;
          }else{

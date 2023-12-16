@@ -79,7 +79,7 @@ export default {
     if(id) {
       if(!(id === this.currentRecipe)) {
         this.currentRecipe = id;
-        resolvePromise(extractRecipeData(id), this.currentRecipePromiseState)
+        resolvePromise(getRecipeInformation(id), this.currentRecipePromiseState)
       }
     }
   },

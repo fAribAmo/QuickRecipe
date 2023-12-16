@@ -51,9 +51,7 @@ function SearchPageView(props){
                 <h2 className='text3'>Popular Ingredients:</h2>
                 <PopularIngredientsView handlePopularIngredientClick={addIngredient}
                                         setThisIngredientFirst={setIngredientText} />
-            </div>
-
-            <dive>
+                                         <div>
                 <label>Diet:</label>
                   <select onChange={handleDietChange}>
                     <option value="">Select Diet</option>
@@ -68,8 +66,8 @@ function SearchPageView(props){
                     <option value="gluten">Gluten</option>
                   {/* ... other options ... */}
                 </select>
-              </dive>
-
+              </div>
+            </div>
 
             {/* Right section */}
             <div id="rectangle" className="placeholder-list">
@@ -84,6 +82,7 @@ function SearchPageView(props){
                 Search
               </button>
         </div>
+        
     </div>
   );
 };
