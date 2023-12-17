@@ -45,13 +45,13 @@ export default {
   },
 
   doSearch() {
-    resolvePromise(searchRecipesByIngredients(this.searchParameters), this.searchResultsPromiseState);
+    resolvePromise(searchRecipesByIngredients(this.ingredientArray), this.searchResultsPromiseState);
   },
-   
 
   seeRecipeDetails(recipeId){
     resolvePromise(getRecipeInformation(recipeId), this.searchResultsPromiseState)
   },
+
 //**Den här kan man använda istället för setCurrentRecipe För att undvika använda API *//
   saveCurrentRecipe(id){
     if (id) {
