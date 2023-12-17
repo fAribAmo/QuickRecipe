@@ -9,19 +9,27 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'; 
 
 const App = (props) => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePagePresenter />} />
-        <Route path="/search" element={<SearchPagePresenter model={props.model}/>} />
-        <Route path="/contact" element={<ContactPagePresenter />} />
-        <Route path="/about" element={<AboutPagePresenter />} />
-        <Route path="/result" element={<SearchResultPresenter model={props.model}/>} />
-        <Route path="/detail" element={<SearchDetailsPresenter model={props.model}/>} />
-        {/* Add more routes as needed */}
-      </Routes>
-    </Router>
-  );
+  if(!props.model.ready) {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePagePresenter />} />
+          <Route path="/search" element={<SearchPagePresenter model={props.model}/>} />
+          <Route path="/contact" element={<ContactPagePresenter />} />
+          <Route path="/about" element={<AboutPagePresenter />} />
+          <Route path="/result" element={<SearchResultPresenter model={props.model}/>} />
+          <Route path="/detail" element={<SearchDetailsPresenter model={props.model}/>} />
+          {/* Add more routes as needed */}
+        </Routes>
+      </Router>
+    );
+  } else {
+    return (
+      <div>
+        <img src="https://brfenergi.se/iprog/loading.gif" height="100"/>
+      </div>
+    );
+  }
 }
 
 export default App;
