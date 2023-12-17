@@ -1,23 +1,8 @@
 import {BASE_URL, API_KEY} from "/src/apiConfig.js";
 /**This API returns a list of recipes based on the array 
  * of ingredients it receives.*/
-export function searchRecipesByIngredients({ ingredients, diet, intolerances, excludeIngredients }) {
-    // It now accepts additional search criteria, including diet, and incorporate these into the API request.
-    let queryParams = `query=${ingredients.join(",")}`;
-    
-    if (diet) {
-      queryParams += `&diet=${diet}`;
-    }
-  
-    if (intolerances) {
-      queryParams += `&intolerances=${intolerances}`;
-    }
-  
-    if (excludeIngredients) {
-      queryParams += `&excludeIngredients=${excludeIngredients}`;
-    }
-  
-    const url = BASE_URL + "recipes/search?" + queryParams;
+export function searchRecipesByIngredients(searchParams) {
+    const url = BASE_URL+"recipes/findByIngredients?ingredients=" + searchParams.join("%2C");
   
     const options = {
       method: "GET",

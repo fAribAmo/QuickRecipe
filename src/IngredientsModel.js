@@ -12,15 +12,7 @@ export default {
   currentRecipePromiseState: {},
   dummyNumber: 2, //test for firebase config
   indexCounter: 0,
-  selectedIntolerances: [],
-
-  setSelectedDiet(diet) {
-    this.selectedDiet = diet;
-  },
-
-  setSelectedIntolerances(intolerances) {
-    this.selectedIntolerances = intolerances;
-  },
+  specialDiets: [],
 
   addIngredient(ingredient) { //suggested solution from chatgpt to prevent error
     this.ingredientArray = Array.isArray(this.ingredientArray)
@@ -53,13 +45,7 @@ export default {
   },
 
   doSearch() {
-    const searchParams = {
-      ingredients: this.ingredientArray,
-      diet: this.selectedDiet,
-      intolerances: this.selectedIntolerances,
-      excludeIngredients: this.excludedIngredients
-    };
-    resolvePromise(searchRecipesByIngredients(searchParams), this.searchResultsPromiseState);
+    resolvePromise(searchRecipesByIngredients(this.searchParameters), this.searchResultsPromiseState);
   },
    
 

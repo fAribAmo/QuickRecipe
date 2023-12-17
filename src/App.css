@@ -90,6 +90,30 @@
   background-color:rgb(255, 210, 62);
 }
 
+.diet-filter-bar{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15%;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.special-diets-text{
+  font-size: 18px;
+  font-weight:bold;
+  background-color:transparent;
+}
+
+.diet-filter-button {
+  
+  margin-left: 15px;
+  border: '2px solid';
+  border-radius: 20px;
+  border-color: rgb(255, 210, 62);
+  background-color:transparent;
+}
+
 .search-add-button {
   margin-left: 15px;
   border: '1px solid black';

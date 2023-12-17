@@ -6,6 +6,7 @@ function SearchResultView(props){
    function navigateBackToSearchCB() {
       props.navigateBackToSearch();
    }
+
    function navigateToDetailsCB(searchResult) {
       props.navigateToDetails();
       model.saveCurrentRecipe(searchResult.id);
@@ -20,6 +21,13 @@ function SearchResultView(props){
                Back to Search 
             </button>
          </div>
+         <div className='diet-filter-bar'>
+            <button className='special-diets-text'>Special Diets:</button>
+            <button className='diet-filter-button'>Vegan</button>
+            <button className='diet-filter-button'>Vegetarian</button>
+            <button className='diet-filter-button'>Gluten Free</button>
+            <button className='diet-filter-button'>Diary Free</button>
+         </div>
          <div className='container'>
             {props.recipes.map(searchResultImageNameCB)}
          </div>
@@ -29,16 +37,16 @@ function SearchResultView(props){
     );
     function searchResultImageNameCB(searchResult){
       return (
-        <span key={searchResult.id} onClick={() => navigateToDetailsCB(searchResult)}>
-            <div className='item'>
-               <div><img src={searchResult.image} width="300" height="236"></img></div>
-               <div className='content'>
-                  <div className='title'>{searchResult.title} </div>
-                  <div className='ingredients'></div>
-                  Ingredients: {getIngredientsCB(searchResult)}
+            <span key={searchResult.id} onClick={() => navigateToDetailsCB(searchResult)}>
+               <div className='item'>
+                  <div><img src={searchResult.image} width="300" height="236"></img></div>
+                  <div className='content'>
+                     <div className='title'>{searchResult.title} </div>
+                     <div className='ingredients'></div>
+                     Ingredients: {getIngredientsCB(searchResult)}
+                  </div>
                </div>
-            </div>
-         </span>
+            </span>
       );
 
       function getIngredientsCB(searchResult){

@@ -28,6 +28,7 @@ const isGlutenFree = props.recipeData ? props.recipeData.glutenFree : false;
               <div className='detail-title'>{props.recipeData.title}</div>
               <div className='details'>
                 <p>Time: {props.recipeData.readyInMinutes} minutes</p>
+                <p>Servings: {props.recipeData.servings}</p>
                 <p>{isVegetarian && 'Vegetarian'}</p>
                 <p>{isVegan && 'Vegan'}</p>
                 <p>{isDairyFree && 'Dairy-Free'}</p>
