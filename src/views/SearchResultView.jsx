@@ -8,7 +8,7 @@ function SearchResultView(props){
    }
 
    function navigateToDetailsCB(searchResult) {
-      props.navigateToDetails();
+      props.navigateToDetails(searchResult);
       model.saveCurrentRecipe(searchResult.id);
    }
     return (
