@@ -255,17 +255,19 @@
 
 .additional-sections {
   display: flex;
-  margin-top: 20px; /* Adjust margin as needed */
+  margin-top: 20px; 
 }
 
 .section-left {
   width: 30%;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px;
+  background-color: rgb(237, 186, 92);
 }
 
 .section-right {
   width: 70%;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px; 
+  
 }
 
 /* ContactPageView styles */

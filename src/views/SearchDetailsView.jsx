@@ -23,10 +23,10 @@ function SearchDetailsView(props) {
         Back to Search
       </button>
       <div className='container'>
+        <div className='image-section'>
+          <img src={dishImg} alt={dishTitle} />
+        </div>
         <div className='content-section'>
-          <div className='image-section'>
-            <img src={dishImg} alt={dishTitle} />
-          </div>
           <div className='title'>{dishTitle}</div>
           <div className='details'>
             <p>Time: {time} minutes</p>
@@ -50,7 +50,12 @@ function SearchDetailsView(props) {
         </div>
         <div className='section-right'>
           <h2>Recipe</h2>
-          <p>{searchData && searchData.instructions}</p>
+          <ol>
+            {searchData &&
+              searchData.analyzedInstructions[0]?.steps.map((step) => (
+                <li key={step.number}>{step.step}</li>
+              ))}
+          </ol>
         </div>
       </div>
     </div>
