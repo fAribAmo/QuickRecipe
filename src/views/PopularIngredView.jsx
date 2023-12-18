@@ -9,9 +9,8 @@ function PopularIngredientsView(props){
       props.handlePopularIngredientClick(ingredient)
     }
     return (
-        <tr key={index} >
-          <td><button onClick={addPopularIngredientCB}>+</button></td>
-          <td>{ingredient}</td>
+        <tr key={index}>
+          <td ><button className='search-popIng-button' onClick={addPopularIngredientCB}> + {ingredient}</button></td>
         </tr>
     )
   }

@@ -1,15 +1,13 @@
 
 import { observer } from "mobx-react-lite";
-import SearchResultView from "../views/SearchResultView";
-import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import SearchDetailsView from "../views/SearchDetailsView";
+import RecommendationView from "../views/RecommendationView";
 
 
 
 export default observer(
-    function SearchDetailsPresenter(props) {
-        const state = props.model.currentRecipePromiseState;
+    function RecommendationPresenter(props) {
+        const state = props.model.recommendationPromiseState;
         const navigate = useNavigate();
         function navigateToResultsACB() {
             navigate('/result'); 
@@ -34,6 +32,5 @@ export default observer(
                 </div>
              )
             }
-        }
-    
-    )
+    }
+)

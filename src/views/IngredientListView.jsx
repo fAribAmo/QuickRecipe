@@ -8,10 +8,7 @@ function IngredientListView(props) {
           props.deleteIngredientFromList(ingredient);
       }
       return <tr key={index}>
-                <td><button onClick={WantsToRemoveACB}>-</button></td>
-                <td className='search-popIng-button'>
-                    {ingredient}
-                </td> 
+                <td><button onClick={WantsToRemoveACB} className='search-popIng-button'>- {ingredient}</button></td> 
              </tr>;
   }
 

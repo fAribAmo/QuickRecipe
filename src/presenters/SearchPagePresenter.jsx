@@ -29,6 +29,8 @@ function SearchPagePresenter(props){
     navigate('/result');
   }
 
+  
+
   function setIngredientTextACB(ingredientText){
     props.model.setIngredientText(ingredientText);
   }

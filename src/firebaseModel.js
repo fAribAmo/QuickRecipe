@@ -3,11 +3,19 @@ import { initializeApp } from "firebase/app";
 import { getRecipeInformation } from "/src/recipeSource.js";
 import { getDatabase, ref, get, set, onValue, child, onChildAdded, onChildRemoved, off} from "firebase/database";
 import firebaseConfig from "/src/firebaseConfig.js";
+import { getAuth, signInWithPopup, 
+         signInWithRedirect, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 
 const app= initializeApp(firebaseConfig)
 const db= getDatabase(app)
-const PATH="Recipe_by_ingredient_search_app"; 
+const PATH="Recipe_by_ingredient_search_app/USERID"; 
 const rf = ref(db, PATH)
+export const auth = getAuth(app);
+const buttonInNavbar = document.getElementById('signIn');
+
+if (buttonInNavbar) {
+    buttonInNavbar.innerHTML = auth.currentUser;
+}
 
 export function modelToPersistence(model) {
     function tranformToDishIDSACB(ingredient) {
@@ -36,13 +44,13 @@ export function persistenceToModel(data, model) {
 }
 
 export function saveToFirebase(model){
-    if(model.ready) {
+    if(model.ready && model.user) {
         set(rf, modelToPersistence(model))
     }
 }
 
 export function readFromFirebase(model){
-    model.ready = false;
+    model.ready = false; 
     function convertACB(snapshot) {
         return persistenceToModel(snapshot.val(), model)
     }
@@ -53,7 +61,16 @@ export function readFromFirebase(model){
 }
 
 export default function connectToFirebase(model, watchFunction) {
-    const readFirebaseObject = readFromFirebase(model)
+    function loginOrOutACB(user) {
+        if (model.user) {
+            buttonInNavbar.innerHTML="user "+(user?" ID "+user.uid:user);
+            model.user=user;
+            model.ready=false;
+            readFromFirebase(model)
+        }
+    }
+
+    const readFirebaseObject = onAuthStateChanged(auth, loginOrOutACB);
     watchFunction(checkACB, sideEffectACB)
     function checkACB() {
         return [

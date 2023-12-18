@@ -2,7 +2,6 @@ import { observer } from "mobx-react-lite";
 import SearchResultView from "../views/SearchResultView";
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import model from '../IngredientsModel';
 
 import recipe from '/src/assets/recipe717040.json';
 
@@ -12,14 +11,13 @@ function SearchResultPresenter(props) {
     function navigateToSearchACB() {
         navigate('/search'); 
     }
-    function navigateToDetailsACB() {
-        //**This is where the data is */
-        model.searchResultsPromiseState = {
-            promise: 'foo',
-            error: null,
-            data: recipe,
-          }
+    function navigateToDetailsACB(searchResult) {
+        props.model.setCurrentRecipe(searchResult.id);
         navigate('/detail'); 
+    }
+
+    function dietButtonPressedACB(diet){
+        props.model.addSpecialDiet(diet);
     }
 
     if(!props.model.searchResultsPromiseState.promise) {
@@ -39,12 +37,14 @@ function SearchResultPresenter(props) {
             </div>
         )
     } else {
+        props.model.getAllRecipesInformation();
          return (
             <div>
                 <SearchResultView 
-                                 recipes={props.model.searchResultsPromiseState.data}
+                                 recipes={props.model.getRecipesWithDiet()}
                                  navigateBackToSearch={navigateToSearchACB}
                                  navigateToDetails={navigateToDetailsACB}
+                                 dietButtonPressed={dietButtonPressedACB}
                                  />
             </div>
          )

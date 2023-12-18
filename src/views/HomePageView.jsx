@@ -15,7 +15,9 @@ function HomePageView (props){
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <div className ='home-title'>
-                <li className='center'> Quick Recipe </li>
+                <li className='center'>
+                    <i className="fas fa-utensils"> </i> Quick Recipe
+                </li>
                 </div>
             </ul>
         </nav>
