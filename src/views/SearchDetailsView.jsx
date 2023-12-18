@@ -50,19 +50,22 @@ const isGlutenFree = props.recipeData ? props.recipeData.glutenFree : false;
         <div className='section-right'>
           <h2>Instructions</h2>
           <div>{props.recipeData.analyzedInstructions.map((instructionGroup, groupIndex)  => (
-                <div key={groupIndex}>{instructionGroup.step}
-                  {instructionGroup.steps.map((instruction, index) => (
-                          <div key={index}>
-                              <h3>Step {instruction.number}</h3>
-                              <p>{instruction.step}</p>
-                          </div>
-                      ))}
-                </div>
-              ))}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default SearchDetailsView;
+                 <div key={groupIndex}>
+                 {instructionGroup.steps.map((instruction, index) => (
+                   instruction.number > 4 ? (
+                     <div key={index}>
+                       <h3>Step {instruction.number - 4}</h3>
+                       <p>{instruction.step}</p>
+                     </div>
+                   ) : null
+                 ))}
+               </div>
+             ))}
+           </div>
+         </div>
+       </div>
+     </div>
+   );
+ }
+ 
+ export default SearchDetailsView;
