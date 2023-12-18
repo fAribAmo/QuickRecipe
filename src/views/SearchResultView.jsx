@@ -11,6 +11,23 @@ function SearchResultView(props){
       props.navigateToDetails(searchResult);
       model.saveCurrentRecipe(searchResult.id);
    }
+
+   function veganButtonCB(){
+      props.dietButtonPressed('vegan');
+      
+   }
+
+   function vegetarianButtonCB(){
+      props.dietButtonPressed('vegetarian');
+   }
+   function glutenFreeButtonCB(){
+      props.dietButtonPressed('glutenFree');
+   }
+
+   function DiaryFreeButtonCB(){
+      props.dietButtonPressed('dairyFree');
+   }
+
     return (
       <div className='HomePage' >
          <div><NavigationBar /></div>
@@ -23,10 +40,10 @@ function SearchResultView(props){
          </div>
          <div className='diet-filter-bar'>
             <button className='special-diets-text'>Special Diets:</button>
-            <button className='diet-filter-button'>Vegan</button>
-            <button className='diet-filter-button'>Vegetarian</button>
-            <button className='diet-filter-button'>Gluten Free</button>
-            <button className='diet-filter-button'>Diary Free</button>
+            <button className='diet-filter-button' onClick={veganButtonCB}>Vegan</button>
+            <button className='diet-filter-button' onClick={vegetarianButtonCB} >Vegetarian</button>
+            <button className='diet-filter-button' onClick={glutenFreeButtonCB}>Gluten Free</button>
+            <button className='diet-filter-button' onClick={DiaryFreeButtonCB}>Diary Free</button>
          </div>
          <div className='container'>
             {props.recipes.map(searchResultImageNameCB)}
@@ -53,7 +70,7 @@ function SearchResultView(props){
          var ingredient_str = "";
          ingredient_str = searchResult.usedIngredients.map(getIngredientsTextCB);
          if (searchResult.missedIngredients){
-            ingredient_str += ', ';
+            ingredient_str += ',';
             ingredient_str += searchResult.missedIngredients.map(getIngredientsTextCB);
          }
          ingredient_str += '.';

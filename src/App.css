@@ -114,6 +114,10 @@
   background-color:transparent;
 }
 
+.diet-filter-button:focus{
+  background-color:rgb(255, 210, 62);
+}
+
 .search-add-button {
   margin-left: 15px;
   border: '1px solid black';

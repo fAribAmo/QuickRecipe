@@ -12,15 +12,12 @@ function SearchResultPresenter(props) {
         navigate('/search'); 
     }
     function navigateToDetailsACB(searchResult) {
-        // TODO@siyu: take away the testdata here when all tests done.
-        /*This is where the data is */
-        //props.model.setCurrentRecipe(searchResult.id);
-        props.model.currentRecipePromiseState = {
-            promise: 'foo',
-            error: null,
-            data: recipe,
-          }
+        props.model.setCurrentRecipe(searchResult.id);
         navigate('/detail'); 
+    }
+
+    function dietButtonPressedACB(diet){
+        props.model.addSpecialDiet(diet);
     }
 
     if(!props.model.searchResultsPromiseState.promise) {
@@ -40,12 +37,14 @@ function SearchResultPresenter(props) {
             </div>
         )
     } else {
+        props.model.getAllRecipesInformation();
          return (
             <div>
                 <SearchResultView 
-                                 recipes={props.model.searchResultsPromiseState.data}
+                                 recipes={props.model.getRecipesWithDiet()}
                                  navigateBackToSearch={navigateToSearchACB}
                                  navigateToDetails={navigateToDetailsACB}
+                                 dietButtonPressed={dietButtonPressedACB}
                                  />
             </div>
          )
