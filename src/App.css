@@ -495,3 +495,16 @@ body {
   color: white;
 }
 
+.servings-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.servings-button {
+ margin: 0 5px;
+background-color: rgb(232, 204, 121);
+color: #333;
+padding: 10px; 
+}
+
+
