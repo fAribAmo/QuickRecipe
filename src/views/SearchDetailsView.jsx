@@ -54,8 +54,9 @@ function SearchDetailsView(props) {
       <div className='additional-sections'>
         <div className='section-left'>
           <h2>Ingredients</h2>
-          <p>Servings</p>
+          
           <div className='servings-container'>
+            <p>Servings:</p>
             <button className='servings-button' onClick={() => handleServingsChange(true)}>+</button>
             <p>{adjustedServings}</p>
             <button className='servings-button' onClick={() => handleServingsChange(false)}>-</button>
