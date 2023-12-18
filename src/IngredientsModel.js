@@ -53,14 +53,14 @@ export default {
     return recipesWithDiet;
   },
 
-  addIngredient(ingredient) { //suggested solution from chatgpt to prevent error
+  addIngredient() { //suggested solution from chatgpt to prevent error
     this.ingredientArray = Array.isArray(this.ingredientArray)
     ? [...this.ingredientArray, this.ingredientText]
     : [this.ingredientText];
   },
 
   addIngredientFromInput(){
-    this.addIngredient(this.ingredientText);
+    this.addIngredient();
   },
   
   removeIngredient(ingredientToRemove) {

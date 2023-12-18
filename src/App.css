@@ -106,7 +106,7 @@
 }
 
 .diet-filter-button {
-  
+  color:#333;
   margin-left: 15px;
   border: '2px solid';
   border-radius: 20px;
@@ -254,7 +254,7 @@
   transition: 0.3s;
   width: 300px;
   border-radius: 10px;
-  overflow: scroll;
+  overflow: hidden;
   background-color: #fff2a0;
 }
 
