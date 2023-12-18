@@ -83,6 +83,7 @@
 }
 
 .search-popIng-button {
+  color:#333;
   flex-direction: row;
   margin-left: 15px;
   border: '1px solid';
@@ -100,6 +101,7 @@
 }
 
 .special-diets-text{
+  color: #333;
   font-size: 18px;
   font-weight:bold;
   background-color:transparent;
@@ -492,4 +494,17 @@ body {
   background-color:black;
   color: white;
 }
+
+.servings-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.servings-button {
+ margin: 0 5px;
+background-color: rgb(232, 204, 121);
+color: #333;
+padding: 10px; 
+}
+
 

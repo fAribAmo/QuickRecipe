@@ -15,7 +15,6 @@ export default {
   dummyNumber: 2, //test for firebase config
   indexCounter: 0,
   specialDiets: [],
-
   addSpecialDiet(diet){
     this.specialDiets = [...this.specialDiets, diet];
   },
@@ -124,7 +123,7 @@ export default {
       }
     }
   },
-
+  
   setCurrentRecipe(id) { //måste ändras till urlsökning
     if(id) {
       if(!(id === this.currentRecipe)) {
