@@ -91,6 +91,13 @@
   background-color:rgb(255, 210, 62);
 }
 
+.pop-ingre-bar{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: 100px;
+}
+
 .diet-filter-bar{
   margin-top: 15px;
   margin-bottom: 15px;
@@ -181,6 +188,7 @@
   margin-right: 180px;
   flex: 1;
   border: '3px solid black';
+  overflow: scroll;
 }
 
 .center {

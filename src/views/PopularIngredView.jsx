@@ -18,7 +18,7 @@ function PopularIngredientsView(props){
   return (
     <div>
       <table>
-        <tbody>
+        <tbody className='pop-ingre-bar'>
         {popularIngredients.map((ingredient, index) =>
             PopularIngredientButtonCB(ingredient, index)
           )}

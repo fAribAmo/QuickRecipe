@@ -15,7 +15,7 @@ function IngredientListView(props) {
   return (
       <div>
           <table>
-              <tbody>
+              <tbody  className='detailDishUp'>
               {
               //måste kanske sorteras som i labben först
               //med && kollar påståendet om det finns null element

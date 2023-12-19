@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import NavigationBar from './NavigationBarView';
-import model from '../IngredientsModel';
 
 function SearchDetailsView(props) {
   const isVegetarian = props.recipeData ? props.recipeData.vegetarian : false;
@@ -19,8 +18,8 @@ function SearchDetailsView(props) {
     const adjustedAmount = ((amount / props.recipeData.servings) * adjustedServings).toFixed(2);
     return parseFloat(adjustedAmount); 
   }
+
   function handleServingsChange(increase) {
-  
     const newServings = increase
       ? Math.min(adjustedServings + 2, 14) 
       : Math.max(adjustedServings - 2, 1); 
@@ -42,7 +41,6 @@ function SearchDetailsView(props) {
             <div className='detail-title'>{props.recipeData.title}</div>
             <div className='details'>
               <p>Time: {props.recipeData.readyInMinutes} minutes</p>
-              <p>Servings: {adjustedServings}</p>
               <p>{isVegetarian && 'Vegetarian'}</p>
               <p>{isVegan && 'Vegan'}</p>
               <p>{isDairyFree && 'Dairy-Free'}</p>
