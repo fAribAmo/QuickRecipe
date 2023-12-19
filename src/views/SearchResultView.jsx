@@ -31,13 +31,7 @@ function SearchResultView(props){
     return (
       <div className='HomePage' >
          <div><NavigationBar /></div>
-         <div>
-            <button onClick={navigateBackToSearchCB}
-                     className='backToSearchButton'
-               >
-               Back to Search 
-            </button>
-         </div>
+         <button onClick={navigateBackToSearchCB} className='detail-back'>&#8592;</button>
          <div className='diet-filter-bar'>
             <button className='special-diets-text'>Special Diets:</button>
             <button className='diet-filter-button' onClick={veganButtonCB}>Vegan</button>
