@@ -15,6 +15,7 @@ export default {
   dummyNumber: 2, //test for firebase config
   indexCounter: 0,
   specialDiets: [],
+
   addSpecialDiet(diet){
     this.specialDiets = [...this.specialDiets, diet];
   },
@@ -52,14 +53,17 @@ export default {
     return recipesWithDiet;
   },
 
-  addIngredient(ingredient) { //suggested solution from chatgpt to prevent error
+  addIngredient() {
+    if(this.ingredientArray.includes(this.ingredientText)){
+      return;
+    }
     this.ingredientArray = Array.isArray(this.ingredientArray)
     ? [...this.ingredientArray, this.ingredientText]
     : [this.ingredientText];
   },
 
   addIngredientFromInput(){
-    this.addIngredient(this.ingredientText);
+    this.addIngredient();
   },
   
   removeIngredient(ingredientToRemove) {
@@ -91,27 +95,21 @@ export default {
       return;
     }
 
-    // TODO(@siyu): change this to only call this function when
+    // TODO(@siyu): change this to only call this function when test is done.
     // allDetailsPromiseStates mismatch the searchResultsPromiseState.data.
     if(this.allDetailsPromiseStates.length === this.searchResultsPromiseState.data.length){
       return;
     }
 
-    for(let i = 0, len=this.searchResultsPromiseState.data.length; i<len; i++){
-      let detailPromiseState = {
+    this.allDetailsPromiseStates = Array.from({ length: this.searchResultsPromiseState.data.length }, () => ({}));
+    this.searchResultsPromiseState.data.forEach((item, index) => {
+      //resolvePromise(getRecipeInformation(item.id), this.allDetailsPromiseStates[index]);
+      this.allDetailsPromiseStates[index] = {
         promise: 'foo',
         error: null,
         data: recipe,
-      }
-      // TODO(@siyu): change this to API call.
-      /*
-      let detailPromiseState = {};
-      resolvePromise(getRecipeInformation(this.searchResultsPromiseState.data[i].id), detailPromiseState);
-      */
-      this.allDetailsPromiseStates = [
-        ...this.allDetailsPromiseStates, detailPromiseState
-      ];
-    }
+      };
+    });
   },
 
 
@@ -130,16 +128,17 @@ export default {
         this.currentRecipe = id;
         for(let i = 0, len=this.allDetailsPromiseStates.length; i<len; i++){
           // TODO(@siyu): Change to the right id.
+          
           if(true){
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
           }
-          /*
+          
+         /*
           if('data' in this.allDetailsPromiseStates[i] && this.allDetailsPromiseStates[i].data.id === id){
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
-          }
-          */
+          }*/
         }
       }
     }

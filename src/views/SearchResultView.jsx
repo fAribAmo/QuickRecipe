@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationBar from './NavigationBarView';
 import model from '../IngredientsModel';
 
 function SearchResultView(props){
+
+  const [veganIsOn, veganSetIsOn] = useState(false);
+  const [vegetarianIsOn, vegetarianSetIsOn] = useState(false);
+  const [glutenIsOn, glutenSetIsOn] = useState(false);
+  const [diaryIsOn, diarySetIsOn] = useState(false);
+
    function navigateBackToSearchCB() {
       props.navigateBackToSearch();
    }
@@ -13,31 +19,51 @@ function SearchResultView(props){
    }
 
    function veganButtonCB(){
-      props.dietButtonPressed('vegan');
+      if(veganIsOn){
+         props.dietButtonUnpressed('vegan');
+      }else{
+         props.dietButtonPressed('vegan');
+      }
+      veganSetIsOn(!veganIsOn);
       
    }
 
    function vegetarianButtonCB(){
-      props.dietButtonPressed('vegetarian');
+      if(vegetarianIsOn){
+         props.dietButtonUnpressed('vegetarian');
+      }else{
+         props.dietButtonPressed('vegetarian');
+      }
+      vegetarianSetIsOn(!vegetarianIsOn);
    }
    function glutenFreeButtonCB(){
-      props.dietButtonPressed('glutenFree');
+      if(glutenIsOn){
+         props.dietButtonUnpressed('glutenFree');
+      }else{
+         props.dietButtonPressed('glutenFree');
+      }
+      glutenSetIsOn(!glutenIsOn);
    }
 
    function DiaryFreeButtonCB(){
-      props.dietButtonPressed('dairyFree');
+      if(diaryIsOn){
+         props.dietButtonUnpressed('dairyFree');
+      }else{
+         props.dietButtonPressed('dairyFree');
+      }
+      diarySetIsOn(!diaryIsOn);
    }
 
     return (
       <div className='HomePage' >
          <div><NavigationBar /></div>
-         <button onClick={navigateBackToSearchCB} className='detail-back'>&#8592;</button>
+         <button onClick={navigateBackToSearchCB} className='search-back'>&#8592;</button>
          <div className='diet-filter-bar'>
             <button className='special-diets-text'>Special Diets:</button>
-            <button className='diet-filter-button' onClick={veganButtonCB}>Vegan</button>
-            <button className='diet-filter-button' onClick={vegetarianButtonCB} >Vegetarian</button>
-            <button className='diet-filter-button' onClick={glutenFreeButtonCB}>Gluten Free</button>
-            <button className='diet-filter-button' onClick={DiaryFreeButtonCB}>Diary Free</button>
+            <button className='diet-filter-button' onClick={veganButtonCB} style={{backgroundColor: veganIsOn? 'rgb(255, 210, 62)' : 'transparent',}}>Vegan</button>
+            <button className='diet-filter-button' onClick={vegetarianButtonCB} style={{backgroundColor: vegetarianIsOn? 'rgb(255, 210, 62)' : 'transparent',}}>Vegetarian</button>
+            <button className='diet-filter-button' onClick={glutenFreeButtonCB} style={{backgroundColor: glutenIsOn? 'rgb(255, 210, 62)' : 'transparent'}}>Gluten Free</button>
+            <button className='diet-filter-button' onClick={DiaryFreeButtonCB} style={{backgroundColor: diaryIsOn? 'rgb(255, 210, 62)' : 'transparent'}}>Diary Free</button>
          </div>
          <div className='container'>
             {props.recipes.map(searchResultImageNameCB)}

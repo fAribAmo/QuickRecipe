@@ -20,6 +20,10 @@ function SearchResultPresenter(props) {
         props.model.addSpecialDiet(diet);
     }
 
+    function dietButtonUnpressedACB(diet){
+        props.model.removeSpecialDiet(diet);
+    }
+
     if(!props.model.searchResultsPromiseState.promise) {
         return <div><p>no data</p></div>;
     } else if (!props.model.searchResultsPromiseState.data && !props.model.searchResultsPromiseState.error) {
@@ -45,6 +49,7 @@ function SearchResultPresenter(props) {
                                  navigateBackToSearch={navigateToSearchACB}
                                  navigateToDetails={navigateToDetailsACB}
                                  dietButtonPressed={dietButtonPressedACB}
+                                 dietButtonUnpressed={dietButtonUnpressedACB}
                                  />
             </div>
          )

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import NavigationBar from './NavigationBarView';
-import model from '../IngredientsModel';
 
 function SearchDetailsView(props) {
   const isVegetarian = props.recipeData ? props.recipeData.vegetarian : false;
@@ -19,8 +18,8 @@ function SearchDetailsView(props) {
     const adjustedAmount = ((amount / props.recipeData.servings) * adjustedServings).toFixed(2);
     return parseFloat(adjustedAmount); 
   }
+
   function handleServingsChange(increase) {
-  
     const newServings = increase
       ? Math.min(adjustedServings + 2, 14) 
       : Math.max(adjustedServings - 2, 1); 
@@ -30,7 +29,7 @@ function SearchDetailsView(props) {
   }
 
   return (
-    <div className='HomePage'>
+    <div className='HomePage' key={props.recipeData.id}>
       <NavigationBar />
       <button onClick={navigateBackToResultsCB} className='detail-back'>&#8592;</button>
       <div className='container'>
@@ -42,7 +41,6 @@ function SearchDetailsView(props) {
             <div className='detail-title'>{props.recipeData.title}</div>
             <div className='details'>
               <p>Time: {props.recipeData.readyInMinutes} minutes</p>
-              <p>Servings: {adjustedServings}</p>
               <p>{isVegetarian && 'Vegetarian'}</p>
               <p>{isVegan && 'Vegan'}</p>
               <p>{isDairyFree && 'Dairy-Free'}</p>
@@ -54,8 +52,9 @@ function SearchDetailsView(props) {
       <div className='additional-sections'>
         <div className='section-left'>
           <h2>Ingredients</h2>
-          <p>Servings</p>
+          
           <div className='servings-container'>
+            <p>Servings:</p>
             <button className='servings-button' onClick={() => handleServingsChange(true)}>+</button>
             <p>{adjustedServings}</p>
             <button className='servings-button' onClick={() => handleServingsChange(false)}>-</button>

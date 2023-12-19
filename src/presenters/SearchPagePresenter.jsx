@@ -10,8 +10,8 @@ export default observer(
 function SearchPagePresenter(props){
   const navigate = useNavigate();
 
-  function addIngredientACB(ingredient){
-    props.model.addIngredient(ingredient);
+  function addIngredientACB(){
+    props.model.addIngredient();
   }
 
   function removeIngredientACB(ingredient){
@@ -24,12 +24,10 @@ function SearchPagePresenter(props){
     props.model.searchResultsPromiseState = {
       promise: 'foo',
       error: null,
-      data: testdata,
+      data: testdata.slice(0, 3),
     }
     navigate('/result');
   }
-
-  
 
   function setIngredientTextACB(ingredientText){
     props.model.setIngredientText(ingredientText);
