@@ -33,11 +33,11 @@
 }
 
 .home-title{
-    font-family: 'Adobe Devanagari';
-    font-weight: bold;
-    font-size: 25px;
-    text-align: center;
-    color: black;
+  text-align: center;
+  font-family: 'Adobe Devanagari';
+  font-weight: bold;
+  font-size: 25px;
+  color: black;
 }
 
 .main-content {
@@ -168,9 +168,11 @@
   flex: 1;
 }
 .placeholder-image {
-  width: 65%; 
+  margin-top: 5%;
+  width: 60%; 
   height: 100%;
   background-color: #ccc; 
+  border-radius: 50%;
 }
 
 #rectangle{
@@ -181,11 +183,14 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
+
 .placeholder-list {
+  overflow-y: auto;
   background-color: #eeeeee;
   margin-top: 170px;
   margin-left: 10px;
   margin-right: 180px;
+  padding: 10px;
   flex: 1;
   border: '3px solid black';
   overflow: scroll;
@@ -229,7 +234,7 @@
 }
 
 .overflow{
-  overflow: hidden;
+  overflow: scroll;
 }
 
 @media (max-width: 600px) {
@@ -526,5 +531,6 @@ background-color: rgb(232, 204, 121);
 color: #333;
 padding: 10px; 
 }
+
 
 

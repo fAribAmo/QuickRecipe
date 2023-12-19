@@ -29,7 +29,7 @@ function SearchDetailsView(props) {
   }
 
   return (
-    <div className='HomePage'>
+    <div className='HomePage' key={props.recipeData.id}>
       <NavigationBar />
       <button onClick={navigateBackToResultsCB} className='detail-back'>&#8592;</button>
       <div className='container'>
@@ -74,12 +74,10 @@ function SearchDetailsView(props) {
             {props.recipeData.analyzedInstructions.map((instructionGroup, groupIndex) => (
               <div key={groupIndex}>
                 {instructionGroup.steps.map((instruction, index) => (
-                  instruction.number > 4 ? (
                     <div key={index}>
-                      <h3>Step {instruction.number - 4}</h3>
+                      <h3>Step {instruction.number}</h3>
                       <p>{instruction.step}</p>
                     </div>
-                  ) : null
                 ))}
               </div>
             ))}

@@ -51,7 +51,10 @@ export default {
     return recipesWithDiet;
   },
 
-  addIngredient() { //suggested solution from chatgpt to prevent error
+  addIngredient() {
+    if(this.ingredientArray.includes(this.ingredientText)){
+      return;
+    }
     this.ingredientArray = Array.isArray(this.ingredientArray)
     ? [...this.ingredientArray, this.ingredientText]
     : [this.ingredientText];
@@ -90,27 +93,21 @@ export default {
       return;
     }
 
-    // TODO(@siyu): change this to only call this function when
+    // TODO(@siyu): change this to only call this function when test is done.
     // allDetailsPromiseStates mismatch the searchResultsPromiseState.data.
     if(this.allDetailsPromiseStates.length === this.searchResultsPromiseState.data.length){
       return;
     }
 
-    for(let i = 0, len=this.searchResultsPromiseState.data.length; i<len; i++){
-      let detailPromiseState = {
+    this.allDetailsPromiseStates = Array.from({ length: this.searchResultsPromiseState.data.length }, () => ({}));
+    this.searchResultsPromiseState.data.forEach((item, index) => {
+      //resolvePromise(getRecipeInformation(item.id), this.allDetailsPromiseStates[index]);
+      this.allDetailsPromiseStates[index] = {
         promise: 'foo',
         error: null,
         data: recipe,
-      }
-      // TODO(@siyu): change this to API call.
-      /*
-      let detailPromiseState = {};
-      resolvePromise(getRecipeInformation(this.searchResultsPromiseState.data[i].id), detailPromiseState);
-      */
-      this.allDetailsPromiseStates = [
-        ...this.allDetailsPromiseStates, detailPromiseState
-      ];
-    }
+      };
+    });
   },
 
 
@@ -133,7 +130,7 @@ export default {
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
           }
-          /*
+         /*
           if('data' in this.allDetailsPromiseStates[i] && this.allDetailsPromiseStates[i].data.id === id){
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;

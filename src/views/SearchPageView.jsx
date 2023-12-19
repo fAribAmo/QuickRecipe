@@ -41,7 +41,7 @@ function SearchPageView(props){
                 <h2 className='text3'>Popular Ingredients:</h2>
                 <PopularIngredientsView handlePopularIngredientClick={addIngredient}
                                         setThisIngredientFirst={setIngredientText} />
-                {/*<h2 className='text3'>Ingredients I do not want:</h2>*/}        
+                {/*<h2 className='text3'>Ingredients I do not want:</h2>*/}              
             </div>
             {/* Right section */}
             <div id="rectangle" className="placeholder-list">
