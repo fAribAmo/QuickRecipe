@@ -29,7 +29,7 @@ function SearchDetailsView(props) {
   }
 
   return (
-    <div className='HomePage'>
+    <div className='HomePage' key={props.recipeData.id}>
       <NavigationBar />
       <button onClick={navigateBackToResultsCB} className='detail-back'>&#8592;</button>
       <div className='container'>
