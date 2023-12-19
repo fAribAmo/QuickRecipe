@@ -18,7 +18,6 @@ const NavigationBar = () => {
               onClick={signInACB}
               id="signIn"
               >Sign in
-              {console.log("The error from clicking on signin button is ok")}
       </button>
     );
   }

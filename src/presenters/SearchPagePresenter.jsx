@@ -24,7 +24,7 @@ function SearchPagePresenter(props){
     props.model.searchResultsPromiseState = {
       promise: 'foo',
       error: null,
-      data: testdata.slice(0, 3),
+      data: testdata.slice(0, 10),
     }
     navigate('/result');
   }

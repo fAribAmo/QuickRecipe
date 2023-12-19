@@ -128,17 +128,16 @@ export default {
         this.currentRecipe = id;
         for(let i = 0, len=this.allDetailsPromiseStates.length; i<len; i++){
           // TODO(@siyu): Change to the right id.
-          
           if(true){
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
           }
-          
          /*
           if('data' in this.allDetailsPromiseStates[i] && this.allDetailsPromiseStates[i].data.id === id){
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
-          }*/
+          }
+          */
         }
       }
     }

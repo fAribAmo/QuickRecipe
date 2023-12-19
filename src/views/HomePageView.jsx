@@ -14,11 +14,9 @@ function HomePageView (props){
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <div className ='home-title'>
-                <li className='center'>
+                <li className='home-title'>
                     <i className="fas fa-utensils"> </i> Quick Recipe
                 </li>
-                </div>
             </ul>
         </nav>
         <div className="main-content">
@@ -30,8 +28,9 @@ function HomePageView (props){
                 </div>
             </div> 
             <div className="image-section">
-                {/* Image would be placed here. For now, it's a placeholder */}
-                <div className="placeholder-image"></div>
+                <div >
+                <img className="placeholder-image" src="/src/assets/homePic.jpg"></img>
+                </div>
             </div>
         </div>
     </div>
