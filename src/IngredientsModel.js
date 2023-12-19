@@ -6,15 +6,14 @@ export default {
     
   ingredientArray: [],
   currentRecipe: null,
-  ingredientProperty : {},
   ingredientText: '',
   searchParameters: {},
   searchResultsPromiseState: {},
   currentRecipePromiseState: {},
   allDetailsPromiseStates: [],
-  dummyNumber: 2, //test for firebase config
   indexCounter: 0,
   specialDiets: [],
+
   addSpecialDiet(diet){
     this.specialDiets = [...this.specialDiets, diet];
   },
@@ -124,7 +123,7 @@ export default {
     }
   },
   
-  setCurrentRecipe(id) { //måste ändras till urlsökning
+  setCurrentRecipe(id) { 
     if(id) {
       if(!(id === this.currentRecipe)) {
         this.currentRecipe = id;
@@ -144,15 +143,6 @@ export default {
       }
     }
   },
-
-  setDummyNumberForFirebaseTest(nr) { //test for firebase config 
-    if (nr < 1 || !Number.isInteger(nr)) {
-      throw new Error("number of guests not a positive integer");
-    } else {
-      this.dummyNumber = nr;
-    }
-  }
-
 
   //setNumberOfIngredients{}?
 }
