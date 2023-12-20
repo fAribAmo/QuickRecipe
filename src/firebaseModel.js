@@ -20,7 +20,9 @@ export function modelToPersistence(model) {
         return ingredient;
     }
     function iterateDietsACB(diet) {
-        return diet;
+        if(diet) {
+            return diet;
+        }
     }
     function evaluateUser() {
         if(auth.currentUser) {
@@ -29,8 +31,8 @@ export function modelToPersistence(model) {
     }
     return {
         ingredients : model.ingredientArray.map(iterateIngredientsACB).sort(),
-        //currentRecipe : model.currentRecipe,
-        //specDiets : model.specialDiets.map(iterateDietsACB).sort(),
+        currentRecipe : model.currentRecipe !== undefined ? model.currentRecipe : null,
+        specDiets : model.specialDiets ? model.specialDiets.map(iterateDietsACB).sort() : [],
         //currentUsaer : evaluateUser()
     };
 }
@@ -38,13 +40,14 @@ export function modelToPersistence(model) {
 export function persistenceToModel(data, model) {
     if(data){ //om reaktiva objekt har ändrat tillstånd
 
-        //model.currentRecipe = data.currentRecipe;
-        //model.specialDiets = data.specDiets;
+        model.currentRecipe = data.currentRecipe;
+        model.specialDiets = data.specDiets;
         //setUserIf()
         return saveToModelACB(data.ingredients || []); 
     } else { //om inget ändrats
         model.ingredientArray = []
-        //model.currentRecipe = null
+        model.currentRecipe = null
+        model.specialDiets = []
         //setUserIf()
         return saveToModelACB([]);
     }
@@ -90,6 +93,8 @@ export default function connectToFirebase(model, watchFunction) {
     function checkACB() {
         return [
             model.ingredientArray,
+            model.currentRecipe,
+            model.specialDiets
         ]
     }
 
