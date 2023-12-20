@@ -72,8 +72,6 @@ export default {
     }
     this.ingredientArray= this.ingredientArray.filter(shouldWeKeepIngredientCB);
   },
-  
-  //methods to manage mandatory and unwanted ingredients can be added here later
 
   setIngredientText(currentIngredientText) {
     this.ingredientText = currentIngredientText;
@@ -132,12 +130,12 @@ export default {
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
           }
-         /*
-          if('data' in this.allDetailsPromiseStates[i] && this.allDetailsPromiseStates[i].data.id === id){
+         
+          /*if('data' in this.allDetailsPromiseStates[i] && this.allDetailsPromiseStates[i].data.id === id){
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
-          }
-          */
+          }*/
+          
         }
       }
     }

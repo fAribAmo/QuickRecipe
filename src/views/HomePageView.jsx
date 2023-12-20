@@ -29,7 +29,7 @@ function HomePageView (props){
             </div> 
             <div className="image-section">
                 <div >
-                <img className="placeholder-image" src="/src/assets/homePic.jpg"></img>
+                <img className="placeholder-image" src="/homePic.jpg"></img>
                 </div>
             </div>
         </div>
