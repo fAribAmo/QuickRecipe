@@ -34,7 +34,7 @@ function SearchDetailsView(props) {
       <button onClick={navigateBackToResultsCB} className='detail-back'>&#8592;</button>
       <div className='container'>
         <div className='detail-main-content'>
-          <div className='detail-image'>
+          <div>
             <img src={props.recipeData.image} alt='Recipe' />
           </div>
           <div className='form-group'>
