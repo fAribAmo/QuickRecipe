@@ -193,7 +193,7 @@
   padding: 10px;
   flex: 1;
   border: '3px solid black';
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .center {
@@ -271,8 +271,6 @@
   margin-left: 220px;
   margin-right: 220px;
 }
-
-
 
 .item {
   background: white;

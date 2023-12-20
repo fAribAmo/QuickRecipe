@@ -11,10 +11,6 @@ const PATH="Recipe_by_ingredient_search_app/USERID";
 export const auth = getAuth(app);
 const buttonInNavbar = document.getElementById('signIn');
 
-if (buttonInNavbar) {
-    buttonInNavbar.innerHTML = auth.currentUser;
-}
-
 export function modelToPersistence(model) {
     function iterateIngredientsACB(ingredient) {
         return ingredient;
@@ -24,41 +20,27 @@ export function modelToPersistence(model) {
             return diet;
         }
     }
-    function evaluateUser() {
-        if(auth.currentUser) {
-            return auth.currentUser;
-        }
-    }
     return {
         ingredients : model.ingredientArray.map(iterateIngredientsACB).sort(),
-        currentRecipe : model.currentRecipe !== undefined ? model.currentRecipe : null,
-        specDiets : model.specialDiets ? model.specialDiets.map(iterateDietsACB).sort() : [],
-        //currentUsaer : evaluateUser()
+        //currentRecipe : model.currentRecipe !== undefined ? model.currentRecipe : null,
+        //specDiets : model.specialDiets ? model.specialDiets.map(iterateDietsACB).sort() : [],
     };
 }
 
 export function persistenceToModel(data, model) {
-    if(data){ //om reaktiva objekt har ändrat tillstånd
-
-        model.currentRecipe = data.currentRecipe;
-        model.specialDiets = data.specDiets;
-        //setUserIf()
+    if (data){ //om reaktiva objekt har ändrat tillstånd
+        //model.currentRecipe = data.currentRecipe;
+        //model.specialDiets = data.specDiets;
         return saveToModelACB(data.ingredients || []); 
     } else { //om inget ändrats
         model.ingredientArray = []
-        model.currentRecipe = null
-        model.specialDiets = []
-        //setUserIf()
+        //model.currentRecipe = null
+        //model.specialDiets = []
         return saveToModelACB([]);
     }
     
     function saveToModelACB(returnedIngredients) {
         model.ingredientArray = returnedIngredients;
-    }
-    function setUserIf() {
-        if(data.currentUsaer) {
-            model.user = data.currentUsaer;
-        }
     }
 }
 
@@ -93,8 +75,8 @@ export default function connectToFirebase(model, watchFunction) {
     function checkACB() {
         return [
             model.ingredientArray,
-            model.currentRecipe,
-            model.specialDiets
+            //model.currentRecipe,
+            //model.specialDiets
         ]
     }
 
