@@ -236,6 +236,18 @@
 .overflow{
   overflow: scroll;
 }
+.detail-main-content img {
+  max-width: 100%; /* Make the image responsive */
+  height: auto;
+  /* Add some space between the image and other content */
+}
+
+@media(max-width: 800px) {
+  .detail-main-content {
+    flex-direction: column;
+    align-items: center; /* Center items in column layout */
+  }
+}
 
 @media (max-width: 600px) {
   .nav li {
@@ -360,23 +372,34 @@
 
 .additional-sections {
   display: flex;
-  margin-left: 220px;
-  margin-right: 220px;
-  /*margin-top: 5px; /* Adjust margin as needed */
+  margin: 0 auto;
+  flex-direction: column;
+  max-width: 100vw; /* Adjust the max-width as needed */
+  padding: 10px; /* Add padding for better spacing */
 }
 
-.section-left {
-  width: 30%;
-  background-color: #fff5b7;
-  margin: 5px;
-  padding: 20px; /* Adjust padding as needed */
-}
-
+.section-left,
 .section-right {
-  width: 70%;
+  width: 100%;
   background-color: #fff5b7;
   margin: 5px;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+@media (min-width: 800px) {
+  .additional-sections {
+    flex-direction: row;
+  }
+
+  .section-left {
+    width: 30%;
+  }
+
+  .section-right {
+    width: 70%;
+  }
 }
 
 /* ContactPageView styles */
@@ -513,7 +536,7 @@ body {
 }
 
 .signInButton {
-  margin-left: 300px;
+  margin-left: 150px;
   border: '1px solid black';
   border-radius: 20px;
   background-color:black;

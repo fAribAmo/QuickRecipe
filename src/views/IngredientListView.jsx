@@ -8,7 +8,13 @@ function IngredientListView(props) {
           props.deleteIngredientFromList(ingredient);
       }
       return <tr key={index}>
-                <td><button onClick={WantsToRemoveACB} className='search-popIng-button'>- {ingredient}</button></td> 
+                <td>
+                  <button onClick={WantsToRemoveACB} 
+                          className='search-popIng-button'
+                          >- 
+                          {ingredient}
+                  </button>
+                </td> 
              </tr>;
   }
 
@@ -19,8 +25,8 @@ function IngredientListView(props) {
               {
               //måste kanske sorteras som i labben först
               //med && kollar påståendet om det finns null element
-              props.ingredientsAccess && 
-              Array.isArray(props.ingredientsAccess) && 
+              //props.ingredientsAccess && 
+              //Array.isArray(props.ingredientsAccess) && 
               props.ingredientsAccess.map(ingredientsToTableRowCB)
               //kan ha total ingredients i td-element nedanför table
               }

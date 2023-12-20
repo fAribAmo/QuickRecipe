@@ -43,7 +43,6 @@ function SearchPageView(props){
                                         setThisIngredientFirst={setIngredientText} />
                 {/*<h2 className='text3'>Ingredients I do not want:</h2>*/}              
             </div>
-
             {/* Right section */}
             <div id="rectangle" className="placeholder-list">
                 <h2 className='text4'>My Ingredient List</h2>
