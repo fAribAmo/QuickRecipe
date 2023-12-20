@@ -14,7 +14,7 @@ const NavigationBar = () => {
     } else {
       console.log('The button text is slow')
       signInWithPopup(auth, provider)
-      setTimeout(setSet, 2500)
+      setTimeout(setSet, 3000)
     }
   }
 

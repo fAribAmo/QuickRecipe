@@ -41,12 +41,12 @@ export function persistenceToModel(data, model) {
         //model.currentRecipe = data.currentRecipe;
         //model.specialDiets = data.specDiets;
         //setUserIf()
-        return saveToModelACB(data.ingredients); //---FUNGERAR
+        return saveToModelACB(data.ingredients || []); 
     } else { //om inget ändrats
         model.ingredientArray = []
         //model.currentRecipe = null
         //setUserIf()
-        return saveToModelACB(data.ingredients);
+        return saveToModelACB([]);
     }
     
     function saveToModelACB(returnedIngredients) {
