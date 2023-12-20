@@ -32,12 +32,17 @@ function signInACB() {
 const NavigationBar = () => {
   function returnSignInButton() {
     return(
-      <button className='signInButton'
-              onClick={signInACB}
-              id="signIn"
-              >{setButtonTextCB()}
-              {console.log("The error from clicking on signin button is ok")}
-      </button>
+      <div className="singInContainer">
+        <button className='signInButton'
+                onClick={signInACB}
+                id="signIn"
+                >{setButtonTextCB()}
+                {console.log("The error from clicking on signin button is ok")}
+        </button>
+        <div className="iconSignIn">
+          <i className="fas fa-hand-point-up"></i>
+        </div>
+      </div>
     );
   }
   return (
