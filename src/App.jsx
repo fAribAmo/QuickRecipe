@@ -15,8 +15,8 @@ const App = (props) => {
         <Routes>
           <Route path="/" element={<HomePagePresenter />} />
           <Route path="/search" element={<SearchPagePresenter model={props.model}/>} />
-          <Route path="/contact" element={<ContactPagePresenter />} />
-          <Route path="/about" element={<AboutPagePresenter />} />
+          <Route path="/contact" element={<ContactPagePresenter model={props.model}/>} />
+          <Route path="/about" element={<AboutPagePresenter model={props.model}/>} />
           <Route path="/result" element={<SearchResultPresenter model={props.model}/>} />
           <Route path="/detail" element={<SearchDetailsPresenter model={props.model}/>} />
           {/* Add more routes as needed */}
