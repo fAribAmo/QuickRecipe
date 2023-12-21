@@ -1,8 +1,6 @@
 import React from 'react';
 
-
 function IngredientListView(props) {
-
   function ingredientsToTableRowCB(ingredient, index) {
       function WantsToRemoveACB() {
           props.deleteIngredientFromList(ingredient);
@@ -11,13 +9,11 @@ function IngredientListView(props) {
                 <td>
                   <button onClick={WantsToRemoveACB} 
                           className='search-popIng-button'
-                          >- 
-                          {ingredient}
+                          >- {ingredient}
                   </button>
                 </td> 
              </tr>;
   }
-
   return (
       <div>
           <table>
@@ -37,6 +33,7 @@ function IngredientListView(props) {
   );
 }
 
+export default IngredientListView;
 
 /* OLD implementation
 function IngredientListView({ ingredients, onRemove }){
@@ -55,4 +52,3 @@ function IngredientListView({ ingredients, onRemove }){
 };
 */
 
-export default IngredientListView;

@@ -46,22 +46,24 @@ const NavigationBar = () => {
     );
   }
   return (
+    <div>
       <nav className='nav'>
       <ul className="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
         <div className ='home-title'>
-          <li className='center'> 
-              <a href="/"></a>
-              <i className="fas fa-utensils"></i> 
-            Quick Recipe 
+          <li className='center'>
+          <a href="/">
+            <i className="fas fa-utensils"></i> 
+            Quick Recipe
+          </a> 
           </li> 
         </div>
         <li>{returnSignInButton()}</li>
       </ul>
     </nav>
-    
+    </div>
   );
 };
 

@@ -30,7 +30,6 @@ function SearchPageView(props){
 
   return (
     <div className='HomePage'>
-        <div><NavigationBar /></div>
         <div className='main-content '>
             {/* Left section */}
             <div className="search-page-left">
