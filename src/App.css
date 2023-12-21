@@ -9,7 +9,6 @@
   border: 1px solid red;
 }
 .nav li {
-  padding: 5px;
   float: left;
 }
 
@@ -17,8 +16,6 @@
   display: block;
   color: black;
   text-align: center;
-  padding: 14px;
-
 }
 
 .nav li a:hover {
@@ -26,18 +23,22 @@
   color: rgb(76, 72, 72);
 }
 
-
 .nav{
+  display: flex;
   overflow: hidden;
   width: 100%;
 }
 
 .home-title{
-  text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Adobe Devanagari';
   font-weight: bold;
   font-size: 25px;
   color: black;
+  margin-left: -20px;
+  margin-right: 20px;
 }
 
 .main-content {
@@ -58,6 +59,9 @@
 .search-button-div{
   flex-direction: column;
   text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-button{
@@ -236,6 +240,7 @@
 .overflow{
   overflow: scroll;
 }
+
 .detail-main-content img {
   max-width: 100%; /* Make the image responsive */
   height: auto;
@@ -540,7 +545,8 @@ body {
 }
 
 .signInButton {
-  margin-left: -40px;
+  display: flex;
+  margin-left:640px; 
   border: '1px solid black';
   border-radius: 20px;
   background-color:black;
@@ -557,7 +563,9 @@ body {
 }
 
 .iconSignIn {
-  margin-top: 10px;
+  display: flex;
+  margin-left:680px; 
+  margin-top:5px;
   animation: bounce 1s ease-in-out infinite;
 }
 

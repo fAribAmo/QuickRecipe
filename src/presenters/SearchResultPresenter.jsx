@@ -24,7 +24,11 @@ function SearchResultPresenter(props) {
         props.model.removeSpecialDiet(diet);
     }
 
-    if(!props.model.searchResultsPromiseState.promise) {
+
+
+    if(props.model.ingredientArray.length === 0){
+        return <div><p>Please specify at least one ingredient!</p></div>;
+    }else if(!props.model.searchResultsPromiseState.promise) {
         return <div><p>no data</p></div>;
     } else if (!props.model.searchResultsPromiseState.data && !props.model.searchResultsPromiseState.error) {
         return (
@@ -40,8 +44,11 @@ function SearchResultPresenter(props) {
                 </p>
             </div>
         )
-    } else {
-        props.model.getAllRecipesInformation();
+    } else if(props.model.getRecipesWithDiet().length === 0){
+        return <div><p>Sorry, we did not find recipes with the given ingredient.</p>
+                    <p>Please update the ingredient list.</p>
+                </div>;
+    }else {
          return (
             <div>
                 <SearchResultView 

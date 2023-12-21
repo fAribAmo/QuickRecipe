@@ -37,7 +37,7 @@ const NavigationBar = () => {
                 onClick={signInACB}
                 id="signIn"
                 >{setButtonTextCB()}
-                {console.log("The error from clicking on signin button is ok")}
+                {/*console.log("The error from clicking on signin button is ok")*/}
         </button>
         <div className="iconSignIn">
           <i className="fas fa-hand-point-up"></i>
@@ -46,21 +46,21 @@ const NavigationBar = () => {
     );
   }
   return (
+    <div>
+      <li className ='home-title'> 
+              <a href="/" >
+              <i className="fas fa-utensils">  Quick Recipe</i>  
+              </a>
+      </li> 
       <nav className='nav'>
       <ul className="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
-        <div className ='home-title'>
-          <li className='center'> 
-              <a href="/"></a>
-              <i className="fas fa-utensils"></i> 
-            Quick Recipe 
-          </li> 
-        </div>
         <li>{returnSignInButton()}</li>
       </ul>
     </nav>
+    </div>
     
   );
 };

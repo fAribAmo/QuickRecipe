@@ -56,6 +56,10 @@ export function autoCompleteIngerdient(searchparams){
 /**
 This API endpoint retrieves the detail information of recipe by recipe id*/
 export function getRecipeInformation(id){
+    if(id === null){
+        return new Promise(() => { null });
+    }
+
     const url = BASE_URL+"recipes/" + id +"/information";
     const options = {
         method: "GET",
