@@ -7,7 +7,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const app= initializeApp(firebaseConfig)
 const db= getDatabase(app)
-const PATH="Recipe_by_ingredient_search_app"; 
+var path="Recipe_by_ingredient_search_app"; 
 export const auth = getAuth(app);
 const buttonInNavbar = document.getElementById('signIn');
 
@@ -38,7 +38,7 @@ export function persistenceToModel(data, model) {
 
 export function saveToFirebase(model){
     if(model.ready && model.user) {
-        set(ref(db, PATH+"/"+model.user.uid), modelToPersistence(model))
+        set(ref(db, path+"/"+model.user.uid), modelToPersistence(model))
     }
 }
 
@@ -50,12 +50,13 @@ export function readFromFirebase(model){
     function setModelReadyACB() {
         model.ready = true;
     }
-    return get(ref(db, PATH+"/"+ model.user.uid)).then(convertACB).then(setModelReadyACB)
+    return get(ref(db, path+"/"+ model.user.uid)).then(convertACB).then(setModelReadyACB)
 }
 
 export default function connectToFirebase(model, watchFunction) {
     function loginOrOutACB(user) {
         if (user) {
+            path += '/'+user.uid;
             model.user=user;
             model.ready=false;
             readFromFirebase(model)
