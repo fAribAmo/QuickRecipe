@@ -7,7 +7,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const app= initializeApp(firebaseConfig)
 const db= getDatabase(app)
-var path="Recipe_by_ingredient_search_app"; 
+var path="Recipe_by_ingredient_search_app/USERID"; 
 export const auth = getAuth(app);
 const buttonInNavbar = document.getElementById('signIn');
 
@@ -56,7 +56,6 @@ export function readFromFirebase(model){
 export default function connectToFirebase(model, watchFunction) {
     function loginOrOutACB(user) {
         if (user) {
-            path += '/'+user.uid;
             model.user=user;
             model.ready=false;
             readFromFirebase(model)
