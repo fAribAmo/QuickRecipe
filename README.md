@@ -41,22 +41,25 @@ Or
 ## Project Structure
 The project is structured as follows:
 
-- public: Contains static files. These include:
- - chef-hat.svg: An SVG image used as a decorative element.
- - homePic.jpg: An image file, used as a main image on the homepage.
- - vite.svg: An SVG related to Vite, indicating that this project uses Vite as its build tool.
-- src: The source code of the application, which includes React components, JavaScript modules, and other resources that are processed by the build system.
- - assets: Holds assets that are imported and used by the application code. This can include:
-  - react.svg: An SVG icon for React, used within the application's UI.
-  - recipe717040.json: Contains recipe data in JSON format, used within the application to display recipes.
-  - testdata.json: Sample data in JSON format that used for testing purposes.
-- presenters: Contains presenter components that handle logic and state.
-- views: React components that define the UI of the application.
-- firebaseModel.js: Firebase configuration and initialization file.
-- App.js: The root React component that holds the structure of the application.
-- index.js: The entry point for the React application.
-- firebase.json: Firebase configuration file for deployment.
-- package.json: Lists the project dependencies and other metadata.
+- `public/`: Contains static files that are served directly by the web server. These include:
+  - `chef-hat.svg`: An SVG image used as a decorative element.
+  - `homePic.jpg`: An image file, used as a main image on the homepage.
+  - `vite.svg`: An SVG related to Vite, indicating that this project uses Vite as its build tool.
+
+- `src/`: The source code of the application, which includes React components, JavaScript modules, and other resources that are processed by the build system. It contains:
+  - `assets/`: Holds assets that are imported and used by the application code. This can include:
+    - `react.svg`: An SVG icon for React, used within the application's UI.
+    - `recipe717040.json`: Contains recipe data in JSON format, used within the application to display recipes.
+    - `testdata.json`: Sample data in JSON format that used for testing purposes.
+  - `presenters/`: Contains presenter components that handle logic and state.
+  - `views/`: React components that define the UI of the application.
+  - `firebaseModel.js`: Firebase configuration and initialization file.
+  - `App.js`: The root React component that holds the structure of the application.
+  - `index.js`: The entry point for the React application.
+
+- `firebase.json`: Firebase configuration file for deployment.
+- `package.json`: Lists the project dependencies and other metadata.
+
 
 ## Building for Production :
 To build the application for production, run:
