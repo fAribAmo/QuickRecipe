@@ -6,44 +6,61 @@ In this project, we will be developing a website capable of discovering recipes 
 The API used for this project is:
 https://rapidapi.com/webknox/api/recipe
 
-## What we have done :
-- [x] We created the most of the view componenets and presenters. 
-- [x] The "IngredientsModel, firebaseModel" have been created. 
-- [x] The user can navigate between pages even to the contact page. There are also some popular ingredients that they can add them in the list directly. 
-- [x] The most of the MVP componenets are created. 
-- [x] We have deployed the app ([DeployURL](https://quickrecipe-14ffc.web.app )) and set up the firebase for the project. 
-- [x] We start using data by calling API, for example, when user click the "search" button after entering in the ingredients, the user can get corresponding recipes.
+## Prerequisites :
+Before you begin, ensure you have met the following requirements: 
+- Node.js (v21.1.0 or higher recommended) 
+- npm (v10.0.0 or higher) 
 
-## What we still plan to do :
-- [ ] We have not completed the creation of the detailed view and the utilization of all the intended endpoints. These include the endpoint for displaying similar recipes and the one for presenting the details of each recipe.
+## Installation :
+To install Quick Recipe, follow these steps:
 
-## Project file structure (short description/purpose of each file):
-### VIEWS:
-    HomepageView: It serves the homepage of the application. It includes navigation bar links, a start button which navigate to the searchPage. It also include a placeholder for an image but the image is not ready yet.
+- Clone the repository:
+```bash
+git clone https://gits-15.sys.kth.se/siyulu/DH2642_ht23_Project_QuickRecipe
 
-    IngredientInputView: It contains the input and Add button. It will trigger an "onAdd" function when it clicks.
+- Navigate to the project directory with the commond:
+cd 
 
-    IngredientListView: It will contain the list of ingredients that the user adds. All ingredients has a button to remove.
+- Install the dependencies:
+npm install
+Or if you use Yarn, use:
+yarn install
 
-    SearchPageView: This component add ingredients, display popular ingredients, show the current list, along with a search button.
+## Usage :
+- To run Quick Recipe in the development mode, execute the following command:
+```bash¨
+npm run dev
+Or
+yarn dev
 
-    SearchResultView: Show searching result of the recipes. It is not complete yet.
-    
-    ContactPageView: This componenet is designed to render a contact page.
+## Project Structure
+The project is structured as follows:
 
-### PRESENTER:
-    ContactPagePresenter: Renders the the ContactPageView.
+public/: Contains static files. These include:
+  - `chef-hat.svg`: An SVG image used as a decorative element.
+  - `homePic.jpg`: An image file, used as a main image on the homepage.
+  - `vite.svg`: An SVG related to Vite, indicating that this project uses Vite as its build tool.
+src/: The source code of the application, which includes React components, JavaScript modules, and other resources that are processed by the build system.
+  - `assets/`: Holds assets that are imported and used by the application code. This can include:
+    - `react.svg`: An SVG icon for React, used within the application's UI.
+    - `recipe717040.json`: Contains recipe data in JSON format, used within the application to display recipes.
+    - `testdata.json`: Sample data in JSON format that used for testing purposes.
+presenters/: Contains presenter components that handle logic and state.
+views/: React components that define the UI of the application.
+firebaseModel.js: Firebase configuration and initialization file.
+App.js: The root React component that holds the structure of the application.
+index.js: The entry point for the React application.
+firebase.json: Firebase configuration file for deployment.
+package.json: Lists the project dependencies and other metadata.
 
-    HomePagePresenter: Renderes the SearchResultView.
+## Building for Production :
+To build the application for production, run:
+```bash
+npm run build
+Or if you use Yarn, use :
+yarn build
 
-    SearchPagePresenter: This presenter renders the the search view using 
-    SearchPageView. It manages seach queries, triggers searches and handles search results.
+## Deployment:
+The Quick Recipe app is deployed using Firebase Hosting, which serves the app over a secure connection. The live application can be accessed at [https://quickrecipe-14ffc.web.app/](https://quickrecipe-14ffc.web.app/).
 
-    SearchResultPresenter: Renderes SearchResultView.
 
-### MODEL:
-    IngerdientsModel: This object manage reciepe and ingredient data in the application. It includes the methods for setting current recipe, adding and removing ingredients, it also perform the recipe searches. It also includes the fetch and promise opperations. 
-
-    firebaseMode: Manage database storage and persistence of the project.
-
-    RecipeSource: This component is responsible to intract with the API. It contains four end points. The functions are designed to fetch each of these endpoint for different types of recipe related data from API.
