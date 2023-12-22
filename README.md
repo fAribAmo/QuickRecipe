@@ -15,38 +15,43 @@ Before you begin, ensure you have met the following requirements:
 To install Quick Recipe, follow these steps:
 
 - Clone the repository:
-```bash
+
 git clone https://gits-15.sys.kth.se/siyulu/DH2642_ht23_Project_QuickRecipe
 
 - Navigate to the project directory with the commond:
-cd 
+'cd '
 
 - Install the dependencies:
-npm install
+
+'npm install'
+
 Or if you use Yarn, use:
-yarn install
+
+'yarn install'
 
 ## Usage :
-- To run Quick Recipe in the development mode, execute the following command:
-```bash¨
-npm run dev
+To run Quick Recipe in the development mode, execute the following command:
+
+'npm run dev'
+
 Or
-yarn dev
+
+'yarn dev'
 
 ## Project Structure
 The project is structured as follows:
 
-public/: Contains static files. These include:
-  - `chef-hat.svg`: An SVG image used as a decorative element.
-  - `homePic.jpg`: An image file, used as a main image on the homepage.
-  - `vite.svg`: An SVG related to Vite, indicating that this project uses Vite as its build tool.
-src/: The source code of the application, which includes React components, JavaScript modules, and other resources that are processed by the build system.
-  - `assets/`: Holds assets that are imported and used by the application code. This can include:
-    - `react.svg`: An SVG icon for React, used within the application's UI.
-    - `recipe717040.json`: Contains recipe data in JSON format, used within the application to display recipes.
-    - `testdata.json`: Sample data in JSON format that used for testing purposes.
-presenters/: Contains presenter components that handle logic and state.
-views/: React components that define the UI of the application.
+public: Contains static files. These include:
+  - chef-hat.svg: An SVG image used as a decorative element.
+  - homePic.jpg: An image file, used as a main image on the homepage.
+  - vite.svg: An SVG related to Vite, indicating that this project uses Vite as its build tool.
+src: The source code of the application, which includes React components, JavaScript modules, and other resources that are processed by the build system.
+  - assets: Holds assets that are imported and used by the application code. This can include:
+    - react.svg: An SVG icon for React, used within the application's UI.
+    - recipe717040.json: Contains recipe data in JSON format, used within the application to display recipes.
+    - testdata.json: Sample data in JSON format that used for testing purposes.
+presenters: Contains presenter components that handle logic and state.
+views: React components that define the UI of the application.
 firebaseModel.js: Firebase configuration and initialization file.
 App.js: The root React component that holds the structure of the application.
 index.js: The entry point for the React application.
@@ -55,10 +60,12 @@ package.json: Lists the project dependencies and other metadata.
 
 ## Building for Production :
 To build the application for production, run:
-```bash
-npm run build
-Or if you use Yarn, use :
-yarn build
+
+'npm run build'
+
+Or 
+
+'yarn build'
 
 ## Deployment:
 The Quick Recipe app is deployed using Firebase Hosting, which serves the app over a secure connection. The live application can be accessed at [https://quickrecipe-14ffc.web.app/](https://quickrecipe-14ffc.web.app/).
