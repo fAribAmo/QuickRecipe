@@ -9,7 +9,6 @@
   border: 1px solid red;
 }
 .nav li {
-  padding: 5px;
   float: left;
 }
 
@@ -17,8 +16,6 @@
   display: block;
   color: black;
   text-align: center;
-  padding: 14px;
-
 }
 
 .nav li a:hover {
@@ -26,27 +23,52 @@
   color: rgb(76, 72, 72);
 }
 
-
 .nav{
+  display: flex;
   overflow: hidden;
   width: 100%;
 }
 
 .home-title{
-  text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Adobe Devanagari';
   font-weight: bold;
   font-size: 25px;
   color: black;
+  margin-left: -20px;
+  margin-right: 20px;
 }
 
 .main-content {
-  margin-left: 15%;
+  margin-left: 10%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   color: black;
   padding-bottom: 50px;
+}
+
+
+@media (min-width: 900px) {
+  .main-content {
+    flex-direction: row;
+  }
+
+  .search-page-left {
+    width: 500px;
+    margin-top: 150px;
+  }
+
+  #rectangle {
+    width: 300px;
+  }
+
+  .placeholder-list {
+    margin-left: 10px;
+    margin-right: 180px;
+  }
 }
 
 .detail-main-content{
@@ -58,6 +80,9 @@
 .search-button-div{
   flex-direction: column;
   text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-button{
@@ -76,8 +101,8 @@
 
 .search-page-left {
   text-align: center;
-  margin-top: 150px;
-  width: 500px; 
+  margin-top: 50px;
+  width: 100%; 
   height: auto;
   flex: 1;
 }
@@ -176,7 +201,7 @@
 }
 
 #rectangle{
-  width:300px;
+  width:85%;
   height:300px;
   border-radius: 10px;
   background:rgb(243, 243, 243);
@@ -187,13 +212,13 @@
 .placeholder-list {
   overflow-y: auto;
   background-color: #eeeeee;
-  margin-top: 170px;
+  margin-top: 70px;
   margin-left: 10px;
   margin-right: 180px;
   padding: 10px;
   flex: 1;
   border: '3px solid black';
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .center {
@@ -218,6 +243,7 @@
 
 .button-container{
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .nav.navbar-nav li, a {
@@ -236,6 +262,7 @@
 .overflow{
   overflow: scroll;
 }
+
 .detail-main-content img {
   max-width: 100%; /* Make the image responsive */
   height: auto;
@@ -540,7 +567,8 @@ body {
 }
 
 .signInButton {
-  margin-left: -40px;
+  display: flex;
+  margin-left:640px; 
   border: '1px solid black';
   border-radius: 20px;
   background-color:black;
@@ -557,7 +585,9 @@ body {
 }
 
 .iconSignIn {
-  margin-top: 10px;
+  display: flex;
+  margin-left:680px; 
+  margin-top:5px;
   animation: bounce 1s ease-in-out infinite;
 }
 

@@ -22,7 +22,11 @@ export default {
     function filterDietCB(currentDiet){
       return !(diet === currentDiet);
     }
-    this.specialDiets= this.specialDiets.filter(filterDietCB);
+    this.specialDiets = this.specialDiets.filter(filterDietCB);
+  },
+
+  containsSpecialDiet(diet){
+    return this.specialDiets.includes(diet);
   },
 
   getRecipesWithDiet(){
@@ -36,7 +40,7 @@ export default {
 
     let recipesWithDiet = []
     for(let i = 0, stateLen=this.allDetailsPromiseStates.length; i<stateLen; i++){
-      if(!'data' in this.allDetailsPromiseStates[i]){
+      if(!'data' in this.allDetailsPromiseStates[i] || this.allDetailsPromiseStates[i].data === null){
         continue;
       }
 
@@ -83,11 +87,11 @@ export default {
   },
 
   doSearch() {
-    resolvePromise(searchRecipesByIngredients(this.ingredientArray), this.searchResultsPromiseState);
+    return resolvePromise(searchRecipesByIngredients(this.ingredientArray), this.searchResultsPromiseState);
   },
 
   getAllRecipesInformation() {
-    if(! 'data' in this.searchResultsPromiseState){
+    if(! 'data' in this.searchResultsPromiseState || this.searchResultsPromiseState.data === null){
       return;
     }
 
@@ -99,12 +103,14 @@ export default {
 
     this.allDetailsPromiseStates = Array.from({ length: this.searchResultsPromiseState.data.length }, () => ({}));
     this.searchResultsPromiseState.data.forEach((item, index) => {
-      //resolvePromise(getRecipeInformation(item.id), this.allDetailsPromiseStates[index]);
+      resolvePromise(getRecipeInformation(item.id), this.allDetailsPromiseStates[index]);
+      /*
       this.allDetailsPromiseStates[index] = {
         promise: 'foo',
         error: null,
         data: recipe,
       };
+      */
     });
   },
 
@@ -124,15 +130,17 @@ export default {
         this.currentRecipe = id;
         for(let i = 0, len=this.allDetailsPromiseStates.length; i<len; i++){
           // TODO(@siyu): Change to the right id.
+          /*
           if(true){
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
           }
+          */
          
-          /*if('data' in this.allDetailsPromiseStates[i] && this.allDetailsPromiseStates[i].data.id === id){
+          if('data' in this.allDetailsPromiseStates[i] && this.allDetailsPromiseStates[i].data.id === id){
             this.currentRecipePromiseState = this.allDetailsPromiseStates[i];
             break;
-          }*/
+          }
           
         }
       }

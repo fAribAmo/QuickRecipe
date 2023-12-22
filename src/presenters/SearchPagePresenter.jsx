@@ -20,12 +20,14 @@ function SearchPagePresenter(props){
 
   function handleSearchClickACB(){
     //TODO(@siyu): Remove this once we are done with testing local data.
-    //props.model.doSearch();
+    props.model.doSearch().then(() => props.model.getAllRecipesInformation());
+    /*
     props.model.searchResultsPromiseState = {
       promise: 'foo',
       error: null,
       data: testdata.slice(0, 10),
     }
+    */
     navigate('/result');
   }
 

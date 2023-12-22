@@ -1,52 +1,44 @@
 
 import { initializeApp } from "firebase/app";
-import { getRecipeInformation } from "/src/recipeSource.js";
+import { searchRecipesByIngredients, getRecipeInformation } from "/src/recipeSource.js";
 import { getDatabase, ref, get, set, onValue, child, onChildAdded, onChildRemoved, off} from "firebase/database";
 import firebaseConfig from "/src/firebaseConfig.js";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const app= initializeApp(firebaseConfig)
 const db= getDatabase(app)
-const PATH="Recipe_by_ingredient_search_app/USERID"; 
+var path="Recipe_by_ingredient_search_app"; 
 export const auth = getAuth(app);
 const buttonInNavbar = document.getElementById('signIn');
 
 export function modelToPersistence(model) {
-    function iterateIngredientsACB(ingredient) {
-        return ingredient;
-    }
-    function iterateDietsACB(diet) {
-        if(diet) {
-            return diet;
-        }
-    }
     return {
-        ingredients : model.ingredientArray.map(iterateIngredientsACB).sort(),
+        ingredients : model.ingredientArray.sort(),
+        currentRecipe: model.currentRecipe,
+        specialDiets: model.specialDiets.sort(),
         //currentRecipe : model.currentRecipe !== undefined ? model.currentRecipe : null,
         //specDiets : model.specialDiets ? model.specialDiets.map(iterateDietsACB).sort() : [],
     };
 }
 
 export function persistenceToModel(data, model) {
-    if (data){ //om reaktiva objekt har ändrat tillstånd
-        //model.currentRecipe = data.currentRecipe;
-        //model.specialDiets = data.specDiets;
-        return saveToModelACB(data.ingredients || []); 
-    } else { //om inget ändrats
-        model.ingredientArray = []
-        //model.currentRecipe = null
-        //model.specialDiets = []
-        return saveToModelACB([]);
-    }
-    
-    function saveToModelACB(returnedIngredients) {
-        model.ingredientArray = returnedIngredients;
+    model.ingredientArray = data?.ingredients || [];
+    model.currentRecipe = data?.currentRecipe || null;
+    model.specialDiets = data?.specialDiets || [];
+    model.doSearch().then(() => model.getAllRecipesInformation());
+    getRecipeInformation(model.currentRecipe).then(getCurrentRecipeDataACB);
+    function getCurrentRecipeDataACB(data){
+        if(data !== null){
+            model.currentRecipePromiseState.promise = 'foo';
+            model.currentRecipePromiseState.error = null;
+            model.currentRecipePromiseState.data = data;
+        }
     }
 }
 
 export function saveToFirebase(model){
     if(model.ready && model.user) {
-        set(ref(db, PATH+"/"+model.user.uid), modelToPersistence(model))
+        set(ref(db, path+"/"+model.user.uid), modelToPersistence(model))
     }
 }
 
@@ -58,12 +50,13 @@ export function readFromFirebase(model){
     function setModelReadyACB() {
         model.ready = true;
     }
-    return get(ref(db, PATH+"/"+ model.user.uid)).then(convertACB).then(setModelReadyACB)
+    return get(ref(db, path+"/"+ model.user.uid)).then(convertACB).then(setModelReadyACB)
 }
 
 export default function connectToFirebase(model, watchFunction) {
     function loginOrOutACB(user) {
         if (user) {
+            path += '/'+user.uid;
             model.user=user;
             model.ready=false;
             readFromFirebase(model)
@@ -75,8 +68,8 @@ export default function connectToFirebase(model, watchFunction) {
     function checkACB() {
         return [
             model.ingredientArray,
-            //model.currentRecipe,
-            //model.specialDiets
+            model.currentRecipe,
+            model.specialDiets,
         ]
     }
 
